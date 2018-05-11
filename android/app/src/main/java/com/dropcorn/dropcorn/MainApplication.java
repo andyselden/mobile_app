@@ -1,4 +1,4 @@
-package com.invertase.rnfirebasestarter;
+package com.dropcorn.dropcorn;
 
 import android.app.Application;
 

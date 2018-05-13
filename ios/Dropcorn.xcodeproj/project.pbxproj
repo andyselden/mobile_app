@@ -739,6 +739,9 @@
 						CreatedOnToolsVersion = 6.2;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
+					13B07F861A680F5B00A75B9A = {
+						ProvisioningStyle = Manual;
+					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
 						ProvisioningStyle = Automatic;
@@ -1332,8 +1335,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
+				DEVELOPMENT_TEAM = "";
 				DISPLAY_NAME = Dropcorn;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1348,6 +1353,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.dropcorn.dropcorn;
 				PRODUCT_NAME = Dropcorn;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1358,7 +1364,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = D4P9UM8J7M;
 				DISPLAY_NAME = Dropcorn;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1373,6 +1381,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.dropcorn.dropcorn;
 				PRODUCT_NAME = Dropcorn;
+				PROVISIONING_PROFILE = "683e4523-8784-45bf-ae5b-4f9f93a23ccf";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.dropcorn.dropcorn";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;

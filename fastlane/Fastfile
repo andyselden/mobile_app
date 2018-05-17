@@ -77,53 +77,29 @@ platform :android do
   before_all do
   end
 
-    desc 'Fetch certificates and provisioning profiles'
-    lane :certificates do
-        match(app_identifier: 'com.dropcorn.dropcorn', type: 'development', git_url: "git@andrewSelden.github.com:andrewselden/certificates.git", readonly: true)
-        match(app_identifier: 'com.dropcorn.dropcorn', type: 'appstore', readonly: true)
-    end
+  desc "Build a local apk"
+  lane :local_apk do
 
-  desc "Submit a new Beta Build to Apple TestFlight"
-  desc "This will also make sure the profile is up to date"
-  lane :beta do
-    build_app(scheme: "Dropcorn",
-            workspace: "Dropcorn.xcworkspace",
-            include_bitcode: true)
-    # match(type: "appstore") # more information: https://codesigning.guide
-    gym # Build your app - more options available
-    pilot
-
-    # sh "your_script.sh"
-    # You can also use other beta testing services here (run `fastlane actions`)
   end
 
-  desc "Deploy a new version to the App Store"
-  lane :release do
-     match(
-        type: "appstore", 
-        git_url: "git@andrewSelden.github.com:andrewselden/certificates.git" 
-        )
-    # snapshot
-    gym # Build your app - more options available
-    deliver(force: true)
-    # frameit
-  end
+  desc "This will distribute a build to the internal track of the play store"
+  lane :beta_internal do
+       gradle(
+        project_dir: 'android',
+        task: 'assemble',
+        build_type: 'Release'
+     )
+     google_play_track_version_codes
+     upload_to_play_store(track: 'internal')
+     slack(message: 'Android: Successfully distributed a new beta build to internal track')
 
-  # You can define as many lanes as you want
-
-  after_all do |lane|
-    # This block is called, only if the executed lane was successful
-
-    # slack(
-    #   message: "Successfully deployed new App Update."
-    # )
   end
 
   error do |lane, exception|
-    # slack(
-    #   message: exception.message,
-    #   success: false
-    # )
+     slack(
+       message: exception.message,
+       success: false
+     )
   end
 end
 

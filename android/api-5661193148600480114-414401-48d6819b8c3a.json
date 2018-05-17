@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "api-5661193148600480114-414401",
+  "private_key_id": "48d6819b8c3a1987adfca71378e531526fdf9fc2",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDJpUNYQgckh8xN\nb5s6VM99Fb2EN9OCHbVfIOrCuws9mcWcQ573jStGGL5JyOwZAjt2lPlBBYQdWby4\nXh/wqIWHog/QJ1sPaOByMMmiyZm/G6aYgY+ESh19dnds5LPZdkSmqyCYPYb/0kLs\nAq6ECE53elhRYzbGluVS/bdttaMAAxwTpctaPP5n7Dy7lrFiybDoAn/6OIsY3n5z\nEGwBqU90B9SaqLnb1tBStYILr1mnfS1r3jtMHxBEEnDMzGqgfrGbsN7oRY+Szl4N\nec5M3BfpEyji0ev6CbRwlyiwqblag9v3FIs9CqaJyyIYDvRwHIOPV1FAtB/T5A7N\nfyuXFatjAgMBAAECggEAQoIv5Dxi/rmLuT7GhEbU6PzytVl0ecYyvF2vEOuAmaDO\nfOwQ0rXNQCGJIe0Tcmw6ELKyQ6/+E3A1vtnMzyPGZyYc8RsJ/dsprIBLAVZdT5tf\nJ44UOB35/BfG7DPC3kcT/aUT6yLgFCDV0eJQjVvwBZhk6PNAbd/3Y5grmBQA30+Q\nciCmyhzLgKALop7eLOsZeNkXg8xLe1UN9J2R1S72zi7wLYaa5zxREqeFtg9jpyge\nosnq3z7ptptn4dJ3SOtzpCQ6k++XWe59MHZHZY9yZUCJdwdXSIXrnZIta1m2b4HL\nFA5o3v7SfLlkW6MJyqLh0Xy5C5yNTL2qXgzzILeoAQKBgQD+FTaeMCTc4Qw9b/Ln\n13sBq3otpipRBv5Eu6wkRGpARCC1daXqIgkft/bfR4JHRt2rLJr2Th7xY2zYUq2p\nLKrn3V4RqI6Cf0Y8vf2wf7Q0aLcgCEJvB2y59dFMVY1HdraH1/lp2SZ5zpPNkGdY\nruOILF5EM9paPz0BzAIb+ZrFIwKBgQDLKsMDunFQXHtsOGCCWJqYEm9+hCQG0UDx\nyRE1Iv4crLVOLgaw3VeKJnxnrJ51+KS+8akNjYR3rsAkWlpWQZSKFHKmr5UwNWGU\nV8gCL2txLwisrCBHImXJvU9MwJfH/489gMUjgVxLGjL1iUXEhcMpYXlmY/MOzY8X\nSfnro8uEwQKBgB379uQYHmGKlV0ytuGxRizeRZ7ZeyjwwFTwKNJm2HsZDxsa9Sd6\nOMVrelDDKZarwEERFIB4m6I074VfzGqogMq4Dv/aembgCjPk3+lSSLvel63KC7z6\njVQstDRj7DZAxi2lySM6oxXA0SRzJB8NFIDfa4h07hG0YMizgJQ4kpEtAoGAac3h\nNYXZETK4jAloKTmfeObQ7aA/atV67u/5aCTLFX/UA9zwWxdKSYX1b8Bz3ZgZo98S\nXR6ACBwXsFbliNoqUyaG9sul9C84nBqC7LBpUc5exB33yVPekotmSuBZqywqGqt+\n/xiVSf9g3oIYtVm740cCBBK1N9ZRWJ2L6+2nRYECgYEAjGz7zXJ9bbn9LrYdo0Fu\nuBRJ6z4isZKgAskXhteDgc8kgG5kBlVqzLO2on0urHiT0x8wRYp+M8bj8hqyHCNz\nml0gM/4jZwglgP/c2+vrXXiYCLc44tJ2qaj2pIyAUlfPMgy3kHc3k7BCqj/WAqCP\nGqG00lJC7/mR6Hbius9dZjs=\n-----END PRIVATE KEY-----\n",
+  "client_email": "dropcorn-service-01@api-5661193148600480114-414401.iam.gserviceaccount.com",
+  "client_id": "104538550214446290765",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/dropcorn-service-01%40api-5661193148600480114-414401.iam.gserviceaccount.com"
+}

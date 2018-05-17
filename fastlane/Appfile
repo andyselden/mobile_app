@@ -1,9 +1,10 @@
 team_id "D4P9UM8J7M" # Developer Portal Team ID
 app_identifier "com.dropcorn.dropcorn"     
-
 apple_dev_portal_id "andrew.seldenrust@dropcorn.com"
 itunes_connect_id "andrew.seldenrust@dropcorn.com"
-
 team_id "D4P9UM8J7M"
 itc_team_id "D4P9UM8J7M" 
+
+json_key_file "android/api-5661193148600480114-414401-48d6819b8c3a.json"
+package_name "com.dropcorn.dropcorn"
 

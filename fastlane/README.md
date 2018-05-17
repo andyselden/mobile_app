@@ -50,18 +50,16 @@ Deploy a new version to the App Store
 ----
 
 ## Android
-### android certificates
+### android local_apk
 ```
-fastlane android certificates
+fastlane android local_apk
 ```
-Fetch certificates and provisioning profiles
-### android beta
+Build a local apk
+### android beta_internal
 ```
-fastlane android beta
+fastlane android beta_internal
 ```
-Submit a new Beta Build to Apple TestFlight
-
-This will also make sure the profile is up to date
+This will distribute a build to the internal track of the play store
 ### android release
 ```
 fastlane android release

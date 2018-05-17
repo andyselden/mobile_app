@@ -14,31 +14,37 @@ end
 ####################
 
 platform :ios do
-  before_all do
-    cocoapods(use_bundle_exec: false)
-  end
-
-    desc 'Fetch certificates and provisioning profiles'
-    lane :certificates do
-        match(app_identifier: 'com.dropcorn.dropcorn', type: 'development', git_url: "git@andrewSelden.github.com:andrewselden/certificates.git", readonly: true)
-        match(app_identifier: 'com.dropcorn.dropcorn', type: 'appstore', readonly: true)
+    before_all do
+        cocoapods(
+          use_bundle_exec: false, 
+          podfile: "ios"
+          )
     end
 
-  desc "Submit a new Beta Build to Apple TestFlight"
-  desc "This will also make sure the profile is up to date"
-  lane :beta do
-    build_app(scheme: "Dropcorn",
-            workspace: "Dropcorn.xcworkspace",
-            include_bitcode: true)
-    # match(type: "appstore") # more information: https://codesigning.guide
-    gym # Build your app - more options available
-    pilot
+    desc "Submit a new Beta Build to Apple TestFlight"
+    desc "This will also make sure the profile is up to date"
+    lane :beta do
+    match(
+        type: "appstore", 
+        git_url: "git@andrewSelden.github.com:andrewselden/certificates.git" 
+     ) 
+    increment_build_number(
+        xcodeproj: "ios/Dropcorn.xcodeproj"
+    )
 
-    # sh "your_script.sh"
-    # You can also use other beta testing services here (run `fastlane actions`)
+    build_app(scheme: "Dropcorn",
+            workspace: "ios/Dropcorn.xcworkspace",
+            clean: true,
+            scheme: "Dropcorn",
+            silent: false, 
+            include_bitcode: false
+            )
+
+    changelog_from_git_commits
+
+    upload_to_testflight
   end
 
-  desc "Deploy a new version to the App Store"
   lane :release do
      match(
         type: "appstore", 
@@ -50,22 +56,12 @@ platform :ios do
     # frameit
   end
 
-  # You can define as many lanes as you want
-
-  after_all do |lane|
-    # This block is called, only if the executed lane was successful
-
-    # slack(
-    #   message: "Successfully deployed new App Update."
-    # )
-  end
-
-  error do |lane, exception|
-    # slack(
-    #   message: exception.message,
-    #   success: false
-    # )
-  end
+#  error do |lane, exception|
+#     slack(
+#       message: exception.message,
+#       success: false
+#     )
+#  end
 end
 
 
@@ -106,20 +102,6 @@ end
 ##################
 # TEST 
 ##################
-lane :ios_beta do
-  sync_code_signing
-  build_app(scheme: "Dropcorn",
-            workspace: "ios/Dropcorn.xcworkspace",
-            clean: true,
-            silent: true,
-            include_bitcode: true)
-
-  changelog_from_git_commits
-
-  upload_to_testflight
-
-end
-
 lane :test do
     slack(
       message: "Hey G. This is an automated message."

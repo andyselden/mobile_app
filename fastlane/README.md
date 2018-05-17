@@ -15,11 +15,6 @@ Install _fastlane_ using
 or alternatively using `brew cask install fastlane`
 
 # Available Actions
-### ios_beta
-```
-fastlane ios_beta
-```
-
 ### test
 ```
 fastlane test
@@ -29,11 +24,6 @@ fastlane test
 ----
 
 ## iOS
-### ios certificates
-```
-fastlane ios certificates
-```
-Fetch certificates and provisioning profiles
 ### ios beta
 ```
 fastlane ios beta
@@ -45,7 +35,7 @@ This will also make sure the profile is up to date
 ```
 fastlane ios release
 ```
-Deploy a new version to the App Store
+
 
 ----
 
@@ -60,11 +50,6 @@ Build a local apk
 fastlane android beta_internal
 ```
 This will distribute a build to the internal track of the play store
-### android release
-```
-fastlane android release
-```
-Deploy a new version to the App Store
 
 ----
 

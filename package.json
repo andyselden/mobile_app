@@ -11,7 +11,9 @@
     "replace-in-file": "^3.0.0"
   },
   "rnpm": {
-      "assets": ["./assets/fonts"]
+    "assets": [
+      "./assets/fonts"
+    ]
   },
   "scripts": {
     "android": "react-native run-android",

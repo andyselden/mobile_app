@@ -10,6 +10,9 @@
     "react-test-renderer": "16.2.0",
     "replace-in-file": "^3.0.0"
   },
+  "rnpm": {
+      "assets": ["./assets/fonts"]
+  },
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",

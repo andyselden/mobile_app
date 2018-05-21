@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -44,11 +45,6 @@
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		A038CD85D39748E122AC50D7 /* libPods-Dropcorn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 333056BA5B7ADABE709DF4A1 /* libPods-Dropcorn.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
-		3A6B9AC216BA41F2A5D994DC /* BarutaBlack.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 516D8D71F3E049E682076B63 /* BarutaBlack.ttf */; };
-		038525B4803A4011928A3CC5 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 910EED22BACB4917A462B43D /* FontAwesome.ttf */; };
-		60ED9DD1606145F99FD9152A /* Oxygen-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 76BBE0F2E9E645DDAEDAD70F /* Oxygen-Bold.ttf */; };
-		AE99D7DEBFEA49D393B3AFD4 /* Oxygen-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D09D7038D66943D796539253 /* Oxygen-Light.ttf */; };
-		927CF691B0ED4FA2B655BBFB /* Oxygen-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D6AE594FFC548149E53D476 /* Oxygen-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -372,11 +368,6 @@
 		ADF4CB3C3BF44D3EBA8B78C4 /* RNFirebase.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNFirebase.xcodeproj; path = "../node_modules/react-native-firebase/ios/RNFirebase.xcodeproj"; sourceTree = "<group>"; };
 		B7AFA8AA9A1CFD17320E9074 /* Pods-Dropcorn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dropcorn.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dropcorn/Pods-Dropcorn.release.xcconfig"; sourceTree = "<group>"; };
 		FBC8C743C046423C960F2237 /* libRNFirebase.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNFirebase.a; sourceTree = "<group>"; };
-		516D8D71F3E049E682076B63 /* BarutaBlack.ttf */ = {isa = PBXFileReference; name = "BarutaBlack.ttf"; path = "../assets/fonts/BarutaBlack.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		910EED22BACB4917A462B43D /* FontAwesome.ttf */ = {isa = PBXFileReference; name = "FontAwesome.ttf"; path = "../assets/fonts/FontAwesome.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		76BBE0F2E9E645DDAEDAD70F /* Oxygen-Bold.ttf */ = {isa = PBXFileReference; name = "Oxygen-Bold.ttf"; path = "../assets/fonts/Oxygen-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		D09D7038D66943D796539253 /* Oxygen-Light.ttf */ = {isa = PBXFileReference; name = "Oxygen-Light.ttf"; path = "../assets/fonts/Oxygen-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		4D6AE594FFC548149E53D476 /* Oxygen-Regular.ttf */ = {isa = PBXFileReference; name = "Oxygen-Regular.ttf"; path = "../assets/fonts/Oxygen-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -561,11 +552,6 @@
 				49B5A88220B3062700C1FB81 /* Oxygen-Bold.ttf */,
 				49B5A87E20B3062700C1FB81 /* Oxygen-Light.ttf */,
 				49B5A87F20B3062700C1FB81 /* Oxygen-Regular.ttf */,
-				516D8D71F3E049E682076B63 /* BarutaBlack.ttf */,
-				910EED22BACB4917A462B43D /* FontAwesome.ttf */,
-				76BBE0F2E9E645DDAEDAD70F /* Oxygen-Bold.ttf */,
-				D09D7038D66943D796539253 /* Oxygen-Light.ttf */,
-				4D6AE594FFC548149E53D476 /* Oxygen-Regular.ttf */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1162,11 +1148,6 @@
 				49B5A88520B3062700C1FB81 /* BarutaBlack.ttf in Resources */,
 				49B5A88420B3062700C1FB81 /* Oxygen-Regular.ttf in Resources */,
 				49B5A88320B3062700C1FB81 /* Oxygen-Light.ttf in Resources */,
-				3A6B9AC216BA41F2A5D994DC /* BarutaBlack.ttf in Resources */,
-				038525B4803A4011928A3CC5 /* FontAwesome.ttf in Resources */,
-				60ED9DD1606145F99FD9152A /* Oxygen-Bold.ttf in Resources */,
-				AE99D7DEBFEA49D393B3AFD4 /* Oxygen-Light.ttf in Resources */,
-				927CF691B0ED4FA2B655BBFB /* Oxygen-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

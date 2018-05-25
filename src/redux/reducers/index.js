@@ -1,7 +1,5 @@
 import { combineReducers } from 'redux';
-import { firebaseStateReducer } from 'react-redux-firebase';
 
-//import { DATA_AVAILABLE } from "../actions/" //Import the actions types constant we defined in our actions
 
 let dataState = { data: [], loading:true };
 
@@ -16,7 +14,6 @@ const dataReducer = (state = dataState, action) => {
 };
 
 const rootReducer = combineReducers({
-    firebase: firebaseStateReducer,
     dataReducer
 })
 

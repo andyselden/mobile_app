@@ -1,7 +1,7 @@
 import React, { component } from 'react';
 import Navigator from './navigator/Navigator';
 import { Provider } from 'react-redux';
-import { store } from './config/store';
+import { store } from './redux/store';
 
 export default Navigator;
 

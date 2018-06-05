@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react';
-import Navigator from './navigation/Navigator';
 import { Provider } from 'react-redux';
 import store from './redux/store';
 
@@ -10,7 +9,6 @@ class App extends PureComponent {
   render () {
       return (
         <Provider store={ store }>
-            <Navigator/>
       </Provider>
     )
   }

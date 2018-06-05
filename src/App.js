@@ -1,18 +1,19 @@
-import React, { component } from 'react';
-import Navigator from './navigator/Navigator';
+import React, { PureComponent } from 'react';
+import Navigator from './navigation/Navigator';
 import { Provider } from 'react-redux';
-import { store } from './redux/store';
+import store from './redux/store';
 
-export default Navigator;
+import 'whatwg-fetch'
 
 
-export class App extends React.Component {
+class App extends PureComponent {
   render () {
-    return (
-      <Provider store={ store }>
-          <Navigator />
+      return (
+        <Provider store={ store }>
+            <Navigator/>
       </Provider>
     )
   }
 }
 
+export default App

@@ -1,21 +1,10 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from 'redux'
 
-
-let dataState = { data: [], loading:true };
-
-const dataReducer = (state = dataState, action) => {
-    //   switch (action.type) {
-    //       case DATA_AVAILABLE:
-    //           state = Object.assign({}, state, { data: action.data, loading:false });
-    //           return state;
-    //       default:
-               return state;
-    //  }
-};
+import login from './login'
 
 const rootReducer = combineReducers({
-    dataReducer
+    login
 })
 
-export default rootReducer;
+export default rootReducer
 

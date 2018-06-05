@@ -1,6 +1,6 @@
 import React from 'react';
 import { AppRegistry } from 'react-native';
-import { StackNavigator, SwitchNavigator, DrawerNavigator} from 'react-navigation';
+import { createStackNavigator, createSwitchNavigator, createDrawerNavigator} from 'react-navigation';
 
 import HomeScreen from '../screens/Home';
 import ProfileScreen from '../screens/Profile';
@@ -11,7 +11,7 @@ import ForgotPasswordScreen from '../screens/ForgotPassword';
 import Auth from '../Auth';
 
 //App Stack
-const DrawerStack = DrawerNavigator({
+const DrawerStack = createDrawerNavigator({
   HomeScreen: { screen: HomeScreen },
   ProfileScreen: { screen: ProfileScreen },
 },{
@@ -19,7 +19,7 @@ const DrawerStack = DrawerNavigator({
     gesturesEnabled: false
 })
 
-const AppStack = StackNavigator(
+const AppStack = createStackNavigator(
 {
   DrawerStack: { screen: DrawerStack }
 }, {
@@ -29,7 +29,7 @@ const AppStack = StackNavigator(
 
 
 //Auth Stack
-const AuthHeaderDefinedStack = StackNavigator({
+const AuthHeaderDefinedStack = createStackNavigator({
     SplashScreen: {
       screen: SplashScreen,
     },
@@ -47,7 +47,7 @@ const AuthHeaderDefinedStack = StackNavigator({
     initialRouteName: 'SplashScreen',
 });
 
-const AuthStack = StackNavigator({
+const AuthStack = createStackNavigator({
     Root: {
         screen: AuthHeaderDefinedStack,
         navigationOptions: {
@@ -57,7 +57,7 @@ const AuthStack = StackNavigator({
 });
 
 //Auth Stack
-export default SwitchNavigator(
+export default createSwitchNavigator(
   {
     Auth: Auth,
     AppStack: AppStack,

@@ -9,6 +9,7 @@ import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
+import com.reactnativenavigation.NavigationApplication;
 
 import io.invertase.firebase.RNFirebasePackage;
 // optional packages - add/remove as appropriate
@@ -29,9 +30,16 @@ import io.invertase.firebase.fabric.crashlytics.RNFirebaseCrashlyticsPackage; //
 import java.util.Arrays;
 import java.util.List;
 
-public class MainApplication extends Application implements ReactApplication {
+public class MainApplication extends Application implements NavigationApplication {
 
   private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
+    
+     @Override
+     public boolean isDebug() {
+         // Make sure you are using BuildConfig from your own application
+         return BuildConfig.DEBUG;
+     }
+
     @Override
     public boolean getUseDeveloperSupport() {
       return BuildConfig.DEBUG;
@@ -77,4 +85,14 @@ public class MainApplication extends Application implements ReactApplication {
     super.onCreate();
     SoLoader.init(this, /* native exopackage */ false);
   }
+  
+   @Override
+   public List<ReactPackage> createAdditionalReactPackages() {
+       return getPackages();
+   }
+
+     @Override
+   public String getJSMainModuleName() {
+       return "index";
+   }
 }

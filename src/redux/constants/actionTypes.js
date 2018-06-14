@@ -1,4 +1,4 @@
-export const auth = {
+export const authentication = {
   LOGIN: {
     REQUESTED: 'LOGIN.REQUESTED',
     FULFILLED: 'LOGIN.FULFILLED',
@@ -6,8 +6,11 @@ export const auth = {
   },
   LOGOUT: {
     REQUESTED: 'LOGOUT.REQUESTED',
-    FUFILLED: 'LOGOUT.FULFILLED',
+    FULFILLED: 'LOGOUT.FULFILLED',
     REJECTED: 'LOGOUT.REJECTED'
+  },
+  ROOT_CHANGE: {
+      REQUESTED: 'ROOT_CHANGE.REQUESTED'
   },
   SYNC_USER: 'SYNC_USER'
 }

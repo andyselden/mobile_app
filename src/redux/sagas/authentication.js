@@ -1,6 +1,5 @@
 import { call, fork, put, take, takeEvery } from 'redux-saga/effects'
-import { auth } from '../constants/types'
-import { NavigationActions } from 'react-navigation'
+import { authentication } from '../constants/actionTypes'
 
 import {
   loginFulfilled,
@@ -8,7 +7,7 @@ import {
   logoutFulfilled,
   logoutRejected,
   syncUser
-} from '../actions/login'
+} from '../actions/authentication'
 
 import rsf from '../rsf'
 
@@ -17,7 +16,6 @@ function * loginSaga (action) {
   try {
     const data = yield call(rsf.auth.signInWithEmailAndPassword, email, password);
     yield put(loginFulfilled(data));
-    yield put(NavigationActions.navigate({ routeName: 'HomeScreen' }));
   }
   catch(error) {
     yield put(loginRejected(error));
@@ -41,14 +39,16 @@ function * syncUserSaga () {
      if (user) {
          yield put(syncUser(user))
      }
-   else yield put(syncUser(null))
+     else {
+         yield put(syncUser(null))
+     }
  }
 }
 
-export default function * loginRootSaga () {
+export default function * authenticationRootSaga () {
       yield fork(syncUserSaga)
   yield [
-    takeEvery(auth.LOGIN.REQUESTED, loginSaga),
-    takeEvery(auth.LOGOUT.REQUESTED, logoutSaga)
+    takeEvery(authentication.LOGIN.REQUESTED, loginSaga),
+    takeEvery(authentication.LOGOUT.REQUESTED, logoutSaga)
   ]
 }

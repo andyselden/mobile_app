@@ -1,50 +1,56 @@
-import { auth } from '../constants/types'
+import { authentication } from '../constants/actionTypes'
 
 const initialState = {
   loading: false,
-  loggedIn: false,
+  loggedIn: undefined,
   email: '',
   password: '',
   user: null
 }
 
-export default function loginReducer (state = initialState, action = {}) {
+export default function authenticationReducer (state = initialState, action = {}) {
   switch (action.type) {
-    case auth.LOGIN.REQUESTED:
-    case auth.LOGOUT.REQUESTED:
+    case authentication.LOGIN.REQUESTED:
+    case authentication.LOGOUT.REQUESTED:
       return {
         ...state,
         loading: true
       }
-    case auth.LOGIN.FULFILLED:
+    case authentication.LOGIN.FULFILLED:
       return {
         ...state,
         loading: false,
         loggedIn: true
       }
-    case auth.LOGIN.REJECTED:
+    case authentication.LOGIN.REJECTED:
       return {
         ...state,
           loading: false,
           message: action.error.message
       }
-    case auth.LOGOUT.FULFILLED:
+    case authentication.LOGOUT.FULFILLED:
       return {
         ...state,
         loading: false,
         loggedIn: false
       }
-    case auth.LOGOUT.REJECTED:
+    case authentication.LOGOUT.REJECTED:
       return {
         ...state,
         loading: false
       }
-    case auth.SYNC_USER:
+    case authentication.SYNC_USER:
       return {
         ...state,
         loggedIn: action.user != null,
         user: action.user
       }
+    case authentication.ROOT_CHANGE.REQUESTED:
+      return {
+        ...state,
+        root: action.root
+      }
+
     default:
       return state
   }

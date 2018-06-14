@@ -1,4 +1,4 @@
 import App from './src/App';
-export default App;
+const app = new App();
 
 

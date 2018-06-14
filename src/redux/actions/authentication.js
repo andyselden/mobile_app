@@ -1,35 +1,35 @@
-import { auth } from '../constants/types'
+import { authentication } from '../constants/actionTypes'
 
 export const login = (email, password) => ({
-    type: auth.LOGIN.REQUESTED,
+    type: authentication.LOGIN.REQUESTED,
     email,
     password
 })
 
 export const loginFulfilled = credential => ({
-  type: auth.LOGIN.FULFILLED,
+  type: authentication.LOGIN.FULFILLED,
   credential
 })
 
 export const loginRejected = error => ({
-  type: auth.LOGIN.REJECTED,
+  type: authentication.LOGIN.REJECTED,
   error
 })
 
 export const logout = () => ({
-  type: auth.LOGOUT.REQUESTED
+  type: authentication.LOGOUT.REQUESTED
 })
 
 export const logoutFulfilled = () => ({
-  type: auth.LOGOUT.FULFILLED
+  type: authentication.LOGOUT.FULFILLED
 })
 
 export const logoutRejected = error => ({
-  type: auth.LOGOUT.REJECTED,
+  type: authentication.LOGOUT.REJECTED,
   error
 })
 
 export const syncUser = user => ({
-  type: auth.SYNC_USER,
+  type: authentication.SYNC_USER,
   user
 })

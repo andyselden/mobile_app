@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { Provider } from 'react-redux'
 import { Navigation } from 'react-native-navigation'
 import store from './redux/store'
@@ -24,8 +24,11 @@ const homeNavigatorStyle = {
 	drawUnderTabBar: true
 };
 
+const splashNavigationStyle = {
+    navBarHidden: true
+}
 
-class App extends Component {
+class App extends PureComponent {
     constructor(props) {
 		super(props);
         store.subscribe(this.onStoreUpdate.bind(this));
@@ -58,7 +61,9 @@ class App extends Component {
                     screen: {
                     screen: 'DropcornApp.Splash',
                     title: 'Sign In',
-                    homeNavigatorStyle,
+                    navigatorStyle: {
+                        navBarHidden: true
+                    },
                     navigatorButtons: {}
                     },
                 });

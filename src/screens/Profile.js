@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { StyleSheet, View, SafeAreaView, Dimensions, Button, Text, TextInput, Image } from 'react-native';
 
-export default class Profile extends Component {
+export default class Profile extends PureComponent {
     static navigationOptions = {
         headerStyle: {
                 display: 'none'

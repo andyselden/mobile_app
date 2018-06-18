@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { View, Button, Text } from 'react-native';
@@ -7,13 +7,14 @@ import {
     logout
 } from '../redux/actions/authentication.js'
 
-class Home extends Component {
+class Home extends PureComponent {
     static propTypes = {
         logout: PropTypes.func.isRequired,
         loggedIn: PropTypes.bool.isRequired
     }
 
     render () {
+        console.log('Home Screen Rendered')
         return (
         <View>
             <Text>HomeScreen</Text>

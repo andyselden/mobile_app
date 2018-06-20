@@ -3,23 +3,31 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
 import {styles as s} from "react-native-style-tachyons";
-import { SafeAreaView, View, Text } from 'react-native';
-import { Button } from 'react-native-elements';
+import { SafeAreaView, View, Text, Image, TouchableOpacity } from 'react-native';
+import { Divider } from 'react-native-elements';
+import FontAwesome, { Icons } from 'react-native-fontawesome';
 
-import {
-    login
-} from '../redux/actions/authentication.js'
-
+import { D_COLOR_WHITE } from '../constants/style'
 class Splash extends PureComponent {
+    constructor(props){
+        super(props)
+
+        this._goToEmailAuth = this._goToEmailAuth.bind(this)
+    }
+
     static propTypes = {
-        login: PropTypes.func.isRequired,
         loggedIn: PropTypes.bool.isRequired
     }
 
+    _goToEmailAuth() {
+        this.props.navigator.showModal({
+            screen: 'DropcornApp.EmailAuth',
+            title: 'Sign In'
+        })
+    }
+
     render () {
-        console.log('Splash Screen Rendered')
          const {
-             login,
              loggedIn
         } = this.props
 
@@ -27,13 +35,15 @@ class Splash extends PureComponent {
         <SafeAreaView style={[ s.flex_i, s.bg_white ]}>
             <View style={[ s.mt6 ]}></View>
             <View style={[ s.ml3, s.mr3]}>
+                <Image source={require('../../assets/img/primary_logo_2x.png')} style={[s.max_w4, s.max_h4, s.asc ]} />
+                <Text style={[s.primary, s.mt4, s.asc, s.ff_regular, s.f4, s.tc]}><Text style={[s.ff_logo, s.f4]}>DROPCORN</Text> lets you easily drop anything digital to anyone around you</Text>
             </View>
-            <View>
-                <Text>Splash Page</Text>
-                <Text> { loggedIn ? 'logged in' : 'logged out' } </Text>
-                <Button onPress={ ()=> login('testing@gmail.com', 'testing123') } title="Sign In" color='#2C127D' accessibilityLabel="Sign into Your Account"/>
+            <View style={[s.absolute, s.bottom_0, s.min_w8, s.asc, s.mb1]}>
+                    <TouchableOpacity style={[ s.bg_primary, s.h3, s.w4, s.br1 ]} onPress={ this._goToEmailAuth }>
+                        <FontAwesome style={[ s.f2, s.white, s.asc, s.mt2 ]}>{ Icons.envelope }</FontAwesome>
+                    </TouchableOpacity>
             </View>
-        </SafeAreaView>
+       </SafeAreaView>
         );
     }
 }
@@ -43,7 +53,6 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = {
-    login
 }
 
 export default connect (

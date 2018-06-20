@@ -37,6 +37,7 @@
 		490FA07D20D2000100A9BA26 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 490FA07C20D2000100A9BA26 /* FontAwesome.ttf */; };
 		4930170420C85EAF00132DC1 /* libReactNativeNavigation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4930170320C85CE200132DC1 /* libReactNativeNavigation.a */; };
 		49528BCF20A74B6200A4B83B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 49528BCE20A74B6200A4B83B /* GoogleService-Info.plist */; };
+		49A1F2D420D9985C000A53B7 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 49A1F2AD20D9985C000A53B7 /* Zocial.ttf */; };
 		49B5A88320B3062700C1FB81 /* Oxygen-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 49B5A87E20B3062700C1FB81 /* Oxygen-Light.ttf */; };
 		49B5A88420B3062700C1FB81 /* Oxygen-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 49B5A87F20B3062700C1FB81 /* Oxygen-Regular.ttf */; };
 		49B5A88520B3062700C1FB81 /* BarutaBlack.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 49B5A88020B3062700C1FB81 /* BarutaBlack.ttf */; };
@@ -360,6 +361,7 @@
 		492FCB9120ADC9D1005B4D19 /* Dropcorn.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = Dropcorn.entitlements; path = Dropcorn/Dropcorn.entitlements; sourceTree = "<group>"; };
 		493016FE20C85CE200132DC1 /* ReactNativeNavigation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactNativeNavigation.xcodeproj; path = "../node_modules/react-native-navigation/ios/ReactNativeNavigation.xcodeproj"; sourceTree = "<group>"; };
 		49528BCE20A74B6200A4B83B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Desktop/firebaseconfigs/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		49A1F2AD20D9985C000A53B7 /* Zocial.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Zocial.ttf; path = "../../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		49B5A87E20B3062700C1FB81 /* Oxygen-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Oxygen-Light.ttf"; path = "../../assets/fonts/Oxygen-Light.ttf"; sourceTree = "<group>"; };
 		49B5A87F20B3062700C1FB81 /* Oxygen-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Oxygen-Regular.ttf"; path = "../../assets/fonts/Oxygen-Regular.ttf"; sourceTree = "<group>"; };
 		49B5A88020B3062700C1FB81 /* BarutaBlack.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = BarutaBlack.ttf; path = ../../assets/fonts/BarutaBlack.ttf; sourceTree = "<group>"; };
@@ -559,6 +561,7 @@
 		49B5A84920B305F400C1FB81 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				49A1F2AD20D9985C000A53B7 /* Zocial.ttf */,
 				490FA07C20D2000100A9BA26 /* FontAwesome.ttf */,
 				49B5A88020B3062700C1FB81 /* BarutaBlack.ttf */,
 				49B5A88120B3062700C1FB81 /* FontAwesome.ttf */,
@@ -1147,6 +1150,7 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				49B5A88620B3062700C1FB81 /* FontAwesome.ttf in Resources */,
+				49A1F2D420D9985C000A53B7 /* Zocial.ttf in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				49B5A88720B3062700C1FB81 /* Oxygen-Bold.ttf in Resources */,
 				49528BCF20A74B6200A4B83B /* GoogleService-Info.plist in Resources */,

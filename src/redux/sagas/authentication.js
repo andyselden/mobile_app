@@ -1,6 +1,6 @@
 import { call, fork, put, take, takeEvery } from 'redux-saga/effects'
 import { authentication } from '../constants/actionTypes'
-
+import firebase from 'firebase'
 import {
   loginFulfilled,
   loginRejected,
@@ -46,7 +46,8 @@ function * syncUserSaga () {
 }
 
 export default function * authenticationRootSaga () {
-      yield fork(syncUserSaga)
+  yield fork(syncUserSaga)
+
   yield [
     takeEvery(authentication.LOGIN.REQUESTED, loginSaga),
     takeEvery(authentication.LOGOUT.REQUESTED, logoutSaga)

@@ -5,7 +5,7 @@ import { View, Button, Text } from 'react-native';
 
 import {
     logout
-} from '../redux/actions/authentication.js'
+} from '../../redux/actions/authentication.js'
 
 class Home extends PureComponent {
     static propTypes = {
@@ -14,7 +14,6 @@ class Home extends PureComponent {
     }
 
     render () {
-        console.log('Home Screen Rendered')
         return (
         <View>
             <Text>HomeScreen</Text>

@@ -70,7 +70,7 @@ class App extends PureComponent {
                 return;
 
           default:
-            console.log("Not Root Found")
+            console.log("No Root Found")
         }
     }
 }

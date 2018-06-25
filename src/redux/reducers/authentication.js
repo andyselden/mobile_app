@@ -5,29 +5,45 @@ const initialState = {
   loggedIn: undefined,
   email: '',
   password: '',
-  user: null
+  user: null,
+  message: ''
 }
 
 export default function authenticationReducer (state = initialState, action = {}) {
   switch (action.type) {
     case authentication.LOGIN.REQUESTED:
     case authentication.LOGOUT.REQUESTED:
+    case authentication.SIGNUP.REQUESTED:
+    case authentication.PASSWORDRESET.REQUESTED:
       return {
         ...state,
         loading: true
       }
     case authentication.LOGIN.FULFILLED:
+    case authentication.SIGNUP.FULFILLED:
       return {
         ...state,
         loading: false,
         loggedIn: true
       }
     case authentication.LOGIN.REJECTED:
+    case authentication.SIGNUP.REJECTED:
       return {
         ...state,
           loading: false,
           message: action.error.message
       }
+    case authentication.PASSWORDRESET.FULFILLED:
+      return {
+        ...state,
+        loading: false,
+      }
+    case authentication.PASSWORDRESET.REJECTED:
+      return {
+        ...state,
+        loading: false
+      }
+
     case authentication.LOGOUT.FULFILLED:
       return {
         ...state,

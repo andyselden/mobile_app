@@ -1,9 +1,41 @@
 import { authentication } from '../constants/actionTypes'
 
-export const login = (email, password) => ({
+export const signUp = (payload, actions) => ({
+    type: authentication.SIGNUP.REQUESTED,
+    payload,
+    actions
+})
+
+export const signUpFulfilled = credential => ({
+  type: authentication.SIGNUP.FULFILLED,
+  credential
+})
+
+export const signUpRejected = error => ({
+  type: authentication.SIGNUP.REJECTED,
+  error
+})
+
+export const passwordReset = (payload, actions) => ({
+    type: authentication.PASSWORDRESET.REQUESTED,
+    payload,
+    actions
+})
+
+export const passwordResetFulfilled = credential => ({
+  type: authentication.PASSWORDRESET.FULFILLED,
+  credential
+})
+
+export const passwordResetRejected = error => ({
+  type: authentication.PASSWORDRESET.REJECTED,
+  error
+})
+
+export const login = (payload, actions) => ({
     type: authentication.LOGIN.REQUESTED,
-    email,
-    password
+    payload,
+    actions
 })
 
 export const loginFulfilled = credential => ({
@@ -33,3 +65,6 @@ export const syncUser = user => ({
   type: authentication.SYNC_USER,
   user
 })
+
+
+

@@ -6,11 +6,12 @@ import {
     D_COLOR_SECONDARY,
     D_COLOR_TYPOGRAPHY,
     D_COLOR_WHITE,
+    D_COLOR_LINK,
     D_FONT_LOGO,
     D_FONT_LIGHT,
     D_FONT_REGULAR,
     D_FONT_BOLD,
-} from './src/constants/style';
+} from './src/styles/constants';
 
 //Styles Init
 NativeTachyons.build({
@@ -27,6 +28,7 @@ NativeTachyons.build({
          secondary: D_COLOR_SECONDARY,
          typography: D_COLOR_TYPOGRAPHY,
          white: D_COLOR_WHITE,
+         link: D_COLOR_LINK
       }
    }
 }, StyleSheet);

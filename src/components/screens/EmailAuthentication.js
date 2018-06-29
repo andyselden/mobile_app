@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { SafeAreaView, View } from 'react-native'
 
-import { login, signUp, passwordReset } from '../../redux/actions/authentication'
+import { signIn, signUp, passwordReset } from '../../redux/actions/user'
 
 import EmailSignInForm from '../molecules/EmailSignInForm'
 import EmailSignUpForm from '../molecules/EmailSignUpForm'
@@ -28,7 +28,7 @@ class EmailAuthentication extends PureComponent {
     }
 
     static propTypes = {
-        login: PropTypes.func.isRequired,
+        signIn: PropTypes.func.isRequired,
         signUp: PropTypes.func.isRequired,
         passwordReset: PropTypes.func.isRequired
     }
@@ -61,7 +61,7 @@ class EmailAuthentication extends PureComponent {
     }
 
     _handleSignInRequest(payload, actions){
-        this.props.login(payload, actions)
+        this.props.signIn(payload, actions)
     }
 
     _toggleSignUp(){
@@ -139,13 +139,10 @@ class EmailAuthentication extends PureComponent {
 }
 
 const mapStateToProps = state => ({
-    email: state.authentication.email,
-    password: state.authentication.password,
-    loading: state.authentication.loading
 })
 
 const mapDispatchToProps = {
-    login,
+    signIn,
     signUp,
     passwordReset
 }

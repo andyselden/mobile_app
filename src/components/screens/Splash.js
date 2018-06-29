@@ -15,7 +15,6 @@ class Splash extends PureComponent {
     }
 
     static propTypes = {
-        loggedIn: PropTypes.bool.isRequired
     }
 
     _goToEmailAuthentication() {
@@ -26,10 +25,6 @@ class Splash extends PureComponent {
     }
 
     render () {
-         const {
-             loggedIn
-        } = this.props
-
         return (
         <SafeAreaView style={[ s.flex_i, s.bg_white ]}>
             <View style={[ s.mt6 ]}></View>
@@ -48,7 +43,6 @@ class Splash extends PureComponent {
 }
 
 const mapStateToProps = state => ({
-    loggedIn: state.authentication.loggedIn
 })
 
 const mapDispatchToProps = {

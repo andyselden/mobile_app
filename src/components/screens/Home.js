@@ -45,12 +45,11 @@ class Home extends PureComponent {
 
     onNavigatorEvent(event) {
      if (event.type == 'DeepLink') {
-         if(event.payload.id = 'profileSettings') {
+         if(event.payload.id == 'profileSettings') {
         this.props.navigator.showModal({
             screen: 'DropcornApp.Settings',
             title: 'Settings'
         })
-
          }
       }
   }
@@ -61,7 +60,6 @@ class Home extends PureComponent {
             <Text>HomeScreen</Text>
             <Text> { this.props.signedIn ? 'logged in' : 'logged out' } </Text>
             <Button onPress={ this.props.signOut } title="Sign Out" color="#2C127D" accessibilityLabel="Sign out of your account"/>
-            <Button onPress={ this._goToSettings } title="Settings" color="#2C127D" accessibilityLabel="Sign out of your account"/>
         </View>
         );
     }

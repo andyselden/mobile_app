@@ -8,7 +8,7 @@ import DropcornInput from '../atoms/DropcornInput'
 import DropcornButton from '../atoms/DropcornButton'
 import DropcornSpacer from '../atoms/DropcornSpacer'
 
-export default class ProfileForm extends PureComponent {
+export default class SettingsForm extends PureComponent {
     constructor(props){
         super(props)
     }
@@ -47,6 +47,7 @@ export default class ProfileForm extends PureComponent {
                                 error={ touched.displayName && errors.displayName }
                                 onTouch={ setFieldTouched }
                                 name="displayName"
+                                label="Name"
                                 autoFocus
                             />
                             <DropcornInput
@@ -57,8 +58,9 @@ export default class ProfileForm extends PureComponent {
                                 error={ touched.email && errors.email }
                                 onTouch={ setFieldTouched }
                                 name="email"
+                                label="Email"
                             />
-                            <DropcornSpacer size="medium"/>
+                            <DropcornSpacer size="large"/>
                             <DropcornButton
                                 title="Save Changes"
                                 onPress={ handleSubmit }

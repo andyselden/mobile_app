@@ -1,6 +1,7 @@
 import { call, fork, put, take, takeEvery } from 'redux-saga/effects'
 import { userActionTypes } from '../constants/actionTypes'
 import firebase from 'firebase'
+import {Navigation} from 'react-native-navigation'
 
 import {
   signInFulfilled,
@@ -96,13 +97,8 @@ function * passwordResetSaga ({payload, actions}) {
 }
 
 function * updateProfileSaga ({payload, actions}) {
-    console.log(payload)
-    console.log(actions)
     const { displayName, photoURL } = payload
     const { resetForm, setErrors, setSubmitting } = actions
-    console.log(displayName)
-    console.log(photoURL)
-    console.log(rsf.auth)
   try {
     yield call(rsf.auth.updateProfile, {
       displayName: displayName,
@@ -110,6 +106,7 @@ function * updateProfileSaga ({payload, actions}) {
     });
     yield call(resetForm)
     yield put(updateProfileFulfilled())
+    Navigation.handleDeepLink({link: 'updateProfileSaga', payload: { source: 'updateProfileSaga', id: userActionTypes.UPDATEPROFILE.FULFILLED }})
   }
   catch(error) {
     yield put(updateProfileRejected(error))

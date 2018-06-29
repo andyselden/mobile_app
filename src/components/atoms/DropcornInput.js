@@ -3,6 +3,7 @@ import { View } from 'react-native'
 import {styles as s} from "react-native-style-tachyons";
 import {
     FormInput,
+    FormLabel,
     FormValidationMessage
 } from 'react-native-elements'
 
@@ -17,10 +18,17 @@ class DropcornInput extends PureComponent {
     }
 
     render() {
-        const { placeholder, error, ...props } = this.props
+        const { placeholder='input', label='', error, ...props } = this.props
 
         return (
             <View style={[ s.mb2, s.mt2 ]}>
+                { label != '' &&
+                    <FormLabel
+                        labelStyle={[ s.ff_light ]}
+                    >
+                        { label }
+                    </FormLabel>
+                }
                 <FormInput
                     onChangeText={ this._handleChange }
                     onBlur={ this._handleTouch }

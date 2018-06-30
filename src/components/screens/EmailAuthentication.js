@@ -91,27 +91,27 @@ class EmailAuthentication extends PureComponent {
           <SafeAreaView>
               { this.state._active == "SIGNIN" &&
                       <View>
-                 <DropcornSpacer size="large"/>
+                 <DropcornSpacer size="small"/>
                  <EmailSignInForm onSubmit={ this._handleSignInRequest } />
+                 <DropcornSpacer size="large"/>
                  <DropcornButton
                      title="forgot password"
                      onPress={ this._toggleForgotPassword }
                      role="info"
                  />
-                 <DropcornSpacer size="medium"/>
                   <DropcornButton
-                      title="I need to create an account!"
+                      title="or I need to create an account"
                       onPress={ this._toggleSignUp }
-                      role="secondary"
+                      role="info"
                   />
               </View>
               }
 
             { this.state._active == "SIGNUP" &&
                 <View>
-                    <DropcornSpacer size="large"/>
+                    <DropcornSpacer size="small"/>
                  <EmailSignUpForm onSubmit={ this._handleSignUpRequest } />
-                 <DropcornSpacer size="medium"/>
+                 <DropcornSpacer size="large"/>
                  <DropcornButton
                      title="actually I have an account!"
                      onPress={ this._toggleSignIn }
@@ -122,9 +122,9 @@ class EmailAuthentication extends PureComponent {
 
                { this.state._active == "FORGOTPASSWORD" &&
                 <View>
-                    <DropcornSpacer size="large"/>
+                    <DropcornSpacer size="small"/>
                  <ForgotPasswordForm onSubmit={ this._handleForgotPasswordRequest } />
-                 <DropcornSpacer size="medium"/>
+                 <DropcornSpacer size="large"/>
                  <DropcornButton
                      title="actually I remember my password!"
                      onPress={ this._toggleSignIn }

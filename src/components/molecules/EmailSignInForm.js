@@ -28,7 +28,7 @@ export default class EmailSignInForm extends PureComponent {
                         .email()
                         .required(),
                         password: Yup.string()
-                        .min(8)
+                        .min(6)
                         .required('a password is required'),
                     })}
                     render={({

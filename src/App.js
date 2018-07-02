@@ -59,7 +59,6 @@ class App extends PureComponent {
           Navigation.startSingleScreenApp({
                     screen: {
                     screen: 'DropcornApp.Splash',
-                    title: 'Sign In',
                     navigatorStyle: {
                         navBarHidden: true
                     },

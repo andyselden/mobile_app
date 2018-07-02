@@ -1,12 +1,14 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { View, Button, Text } from 'react-native'
-import FontAwesome, { Icons } from 'react-native-fontawesome'
+import { SafeAreaView } from 'react-native'
+import FontAwesome, { Icons } from 'react-native-fontawesome';
 
-import {
-    signOut
-} from '../../redux/actions/user.js'
+
+import DropcornSafeAreaView from '../atoms/DropcornSafeAreaView'
+import DropcornButton from '../atoms/DropcornButton'
+import DropSomethingButton from '../molecules/DropSomethingButton'
+
 
 class Home extends PureComponent {
     constructor(props){
@@ -14,11 +16,10 @@ class Home extends PureComponent {
 
         this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
         this._goToSettings = this._goToSettings.bind(this)
+        this._goToDropSomethingModal = this._goToDropSomethingModal.bind(this)
     }
 
     static propTypes = {
-        signOut: PropTypes.func.isRequired,
-        signedIn: PropTypes.bool.isRequired
     }
 
     static navigatorButtons = {
@@ -32,16 +33,7 @@ class Home extends PureComponent {
                  }
                  }
         ]
-           };
-
-    _goToSettings(){
-        this.props.navigator.showModal({
-            screen: 'DropcornApp.Settings',
-            title: 'Settings'
-        })
-    }
-
-
+    };
 
     onNavigatorEvent(event) {
      if (event.type == 'DeepLink') {
@@ -52,28 +44,48 @@ class Home extends PureComponent {
         })
          }
       }
-  }
+    }
+
+
+    _goToSettings(){
+        this.props.navigator.showModal({
+            screen: 'DropcornApp.Settings',
+            title: 'Settings'
+        })
+    }
+
+     _goToDropSomethingModal(){
+        this.props.navigator.showModal({
+            screen: 'DropcornApp.DropSomethingModal',
+            navigatorStyle: {
+                navBarHidden: true
+            },
+            screenBackgroundColor: 'transparent',
+            modalPresentationStyle: 'overCurrentContext'
+        })
+    }
+
+
+
 
     render () {
         return (
-        <View>
-            <Text>HomeScreen</Text>
-            <Text> { this.props.signedIn ? 'logged in' : 'logged out' } </Text>
-            <Button onPress={ this.props.signOut } title="Sign Out" color="#2C127D" accessibilityLabel="Sign out of your account"/>
-        </View>
+            <DropcornSafeAreaView>
+                <DropSomethingButton onPress={ this._goToDropSomethingModal } buttonText='Drop Something' />
+            </DropcornSafeAreaView>
         );
     }
 }
 
 const mapStateToProps = state => ({
-    signedIn: state.user.signedIn
 })
 
 const mapDispatchToProps = {
-    signOut
 }
 
 export default connect(
     mapStateToProps,
     mapDispatchToProps
 )(Home)
+
+

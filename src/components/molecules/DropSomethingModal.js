@@ -1,50 +1,79 @@
 import React, { PureComponent } from 'react'
+import { View, Text, TouchableOpacity } from 'react-native'
+import Modal from "react-native-modal";
+import {styles as s} from "react-native-style-tachyons";
 import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
-import { SafeAreaView, View, Text } from 'react-native'
 
-import DropcornSafeAreaView from '../atoms/DropcornSafeAreaView'
+import DropSomethingOptions from './DropSomethingOptions'
+import DropSomethingText from './DropSomethingText'
 
 class DropSomethingModal extends PureComponent {
-  constructor(props){
+     constructor(props){
         super(props)
 
-        this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this))
+        this._goToOptionsRoot = this._goToOptionsRoot.bind(this)
+        this._goToTextInput = this._goToTextInput.bind(this)
+
+        this.state = { _activeModalAction: 'ROOT'}
     }
 
     static propTypes = {
+        handleClose: PropTypes.func.isRequired,
     }
 
-    static navigatorButtons = {
+
+    _handleTextSubmit = (inputValue) => {
+        this.props.handleTextSubmit(inputValue)
+    }
+
+    _handleClose = () => {
+        this.props.handleClose()
+    }
+
+    _goToOptionsRoot(){
+        this.setState({
+            _activeModalAction: 'ROOT'
+        })
+    }
+
+    _goToTextInput(){
+        this.setState({
+            _activeModalAction: 'TEXT'
+        })
+    }
+
+    readFromClipboard = async () => {
+        const message = await Clipboard.getString();
+        this.setState({ message });
     };
 
-   onNavigatorEvent(event) {
-    if (event.type == 'NavBarButtonPress') {
-      if (event.id == 'back') {
-          this.props.navigator.dismissModal()
-      }
-    }
-  }
 
-    render () {
+    render() {
+        const {
+            modalIsVisible,
+            ...props
+        } = this.props
+
         return (
-            <DropcornSafeAreaView>
-                <Text>
-                    Testing
-                </Text>
-            </DropcornSafeAreaView>
+             <View>
+                 <Modal
+                     isVisible={ modalIsVisible }
+                     onSwipe = { this._handleClose }
+                     backdropOpacity= '0'
+                     swipeDirection='down'
+                     onBackdropPress = { this._handleClose }
+                     style={[s.ml0, s.mr0, s.mb0]}
+                >
+
+                { this.state._activeModalAction == 'ROOT' ?
+                    <DropSomethingOptions handleTextButton={ this._goToTextInput }/>
+                    :
+                    <DropSomethingText handleBackButton={ this._goToOptionsRoot } handleSubmitButton={ this._handleTextSubmit } inputDefaultValue=''/>
+                }
+               </Modal>
+             </View>
         );
     }
 }
 
-const mapStateToProps = state => ({
-})
-
-const mapDispatchToProps = {
-}
-
-export default connect (
-    mapStateToProps,
-    mapDispatchToProps
-)(DropSomethingModal)
-
+export default DropSomethingModal

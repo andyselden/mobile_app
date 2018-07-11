@@ -34,3 +34,13 @@ export const userActionTypes = {
     },
     SYNC_USER: 'SYNC_USER'
 }
+
+export const kernelActionTypes = {
+    KERNEL: {
+        EXPOSE: 'KERNEL.EXPOSE',
+        HIDE: 'KERNEL.HIDE',
+        ADD_TEXT_ITEM: 'KERNEL.ADD_TEXT_ITEM',
+        ADD_FILE_ITEM: 'KERNEL.ADD_FILE_ITEM',
+        ADD_IMAGE_ITEM: 'KERNEL.ADD_IMAGE_ITEM'
+    }
+}

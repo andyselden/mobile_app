@@ -7,7 +7,7 @@ const initialState = {
   error: ''
 }
 
-export default function userActionTypesReducer (state = initialState, action = {}) {
+export default function userReducer (state = initialState, action = {}) {
   switch (action.type) {
     case userActionTypes.SIGNIN.REQUESTED:
     case userActionTypes.SIGNOUT.REQUESTED:

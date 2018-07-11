@@ -1,0 +1,62 @@
+import { call, fork, put, select, takeEvery } from 'redux-saga/effects'
+import { kernelActionTypes } from '../constants/actionTypes'
+import firebase from 'firebase'
+
+import rsf from '../rsf'
+
+
+import {
+  exposeKernel
+} from '../actions/kernel'
+
+
+function * addItemToKernelSaga (action) {
+    const user = yield select(state => state.user.user)
+    yield call(
+        rsf.firestore.setDocument,
+        `kernels/${ user.uid }/items/01`,
+        {
+            what: action.item
+        },
+        {
+            merge: true
+        }
+    )
+    yield put(exposeKernel())
+}
+
+function * exposeKernelSaga () {
+    const user = yield select(state => state.user.user)
+    yield call(
+        rsf.firestore.setDocument,
+        `kernels/${ user.uid }`,
+        {
+            exposed: true
+        },
+        {
+            merge: true
+        }
+    )
+}
+
+function * hideKernelSaga (action) {
+    const user = yield select(state => state.user.user)
+    yield call(
+        rsf.firestore.setDocument,
+        `kernels/${ user.uid }`,
+        {
+            exposed: false
+        },
+        {
+            merge: true
+        }
+    )
+}
+
+export default function * rootSaga () {
+  yield [
+    takeEvery(kernelActionTypes.KERNEL.ADD_ITEM, addItemToKernelSaga),
+    takeEvery(kernelActionTypes.KERNEL.EXPOSE, exposeKernelSaga),
+    takeEvery(kernelActionTypes.KERNEL.HIDE, hideKernelSaga)
+  ]
+}

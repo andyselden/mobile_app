@@ -1,5 +1,5 @@
 import firebase from 'firebase'
-import '@firebase/firestore' // 👈 If you're using firestore
+import '@firebase/firestore'
 import ReduxSagaFirebase from 'redux-saga-firebase'
 import * as params from '../config/params'
 
@@ -13,6 +13,10 @@ var config = {
 }
 
 const myFirebaseApp = firebase.initializeApp(config);
+
+// const firestore = myFirebaseApp.firestore();
+//  const settings = { timestampsInSnapshots: true};
+//  firestore.settings(settings);
 
 const rsf = new ReduxSagaFirebase(myFirebaseApp)
 

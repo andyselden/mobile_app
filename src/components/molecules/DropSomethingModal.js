@@ -36,6 +36,10 @@ class DropSomethingModal extends PureComponent {
         })
     }
 
+    _handleImageButton = () => {
+        this.props.handleImageButton()
+    }
+
     _goToTextInput(){
         this.setState({
             _activeModalAction: 'TEXT'
@@ -66,7 +70,10 @@ class DropSomethingModal extends PureComponent {
                 >
 
                 { this.state._activeModalAction == 'ROOT' ?
-                    <DropSomethingOptions handleTextButton={ this._goToTextInput }/>
+                        <DropSomethingOptions
+                            handleTextButton={ this._goToTextInput }
+                            handleImageButton={ this._handleImageButton }
+                        />
                     :
                     <DropSomethingText handleBackButton={ this._goToOptionsRoot } handleSubmitButton={ this._handleTextSubmit } inputDefaultValue=''/>
                 }

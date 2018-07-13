@@ -36,11 +36,21 @@ export const userActionTypes = {
 }
 
 export const kernelActionTypes = {
-    KERNEL: {
-        EXPOSE: 'KERNEL.EXPOSE',
-        HIDE: 'KERNEL.HIDE',
-        ADD_TEXT_ITEM: 'KERNEL.ADD_TEXT_ITEM',
-        ADD_FILE_ITEM: 'KERNEL.ADD_FILE_ITEM',
-        ADD_IMAGE_ITEM: 'KERNEL.ADD_IMAGE_ITEM'
+    ADD_TEXT_ITEM: {
+        REQUESTED: 'ADD_TEXT_ITEM.REQUESTED',
+        FULFILLED: 'ADD_TEXT_ITEM.FULFILLED',
+        REJECTED: 'ADD_TEXT_ITEM.REJECTED'
+    },
+    ADD_FILE_ITEM: {
+        REQUESTED: 'ADD_FILE_ITEM.REQUESTED',
+        FULFILLED: 'ADD_FILE_ITEM.FULFILLED',
+        REJECTED: 'ADD_FILE_ITEM.REJECTED'
+    },
+    ADD_IMAGE_ITEM: {
+        REQUESTED: 'ADD_IMAGE_ITEM.REQUESTED',
+        FULFILLED: 'ADD_IMAGE_ITEM.FULFILLED',
+        REJECTED: 'ADD_IMAGE_ITEM.REJECTED'
     }
+}
+export const alertActionTypes = {
 }

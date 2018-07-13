@@ -1,25 +1,49 @@
 import { kernelActionTypes } from '../constants/actionTypes'
 
-export const addTextItemToKernel = (text) => ({
-  type: kernelActionTypes.KERNEL.ADD_TEXT_ITEM,
-    text
+export const addTextItem = (text) => ({
+  type: kernelActionTypes.ADD_TEXT_ITEM.REQUESTED,
+  text
 })
 
-export const addFileItemToKernel = (item) => ({
-  type: kernelActionTypes.KERNEL.ADD_FILE_ITEM,
+export const addTextItemFulfilled = () => ({
+  type: kernelActionTypes.ADD_TEXT_ITEM.FULFILLED
+})
+
+export const addTextItemRejected = error => ({
+  type: kernelActionTypes.ADD_TEXT_ITEM.REJECTED,
+  error
+})
+
+
+export const addFileItem = (item) => ({
+  type: kernelActionTypes.ADD_FILE_ITEM.REQUESTED,
   item
 })
 
-export const addImageItemToKernel = (item) => ({
-  type: kernelActionTypes.KERNEL.ADD_IMAGE_ITEM,
-  item
+export const addFileItemFulfilled = () => ({
+  type: kernelActionTypes.ADD_FILE_ITEM.FULFILLED
 })
 
-export const exposeKernel = () => ({
-    type: kernelActionTypes.KERNEL.EXPOSE
+export const addFileItemRejected = error => ({
+  type: kernelActionTypes.ADD_FILE_ITEM.REJECTED,
+  error
 })
 
-export const hideKernel = () => ({
-  type: kernelActionTypes.KERNEL.HIDE
+export const addImageItem = (uri, fileName) => ({
+  type: kernelActionTypes.ADD_IMAGE_ITEM.REQUESTED,
+    uri,
+    fileName
 })
 
+export const addImageItemFulfilled = () => ({
+  type: kernelActionTypes.ADD_IMAGE_ITEM.FULFILLED
+})
+
+export const addImageItemRejected = error => ({
+  type: kernelActionTypes.ADD_IMAGE_ITEM.REJECTED,
+  error
+})
+
+export const updateTimestamp = () => ({
+    type: kernelActionTypes.KERNEL.UPDATE_TIMESTAMP
+})

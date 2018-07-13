@@ -2,9 +2,13 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { SafeAreaView } from 'react-native'
-import FontAwesome, { Icons } from 'react-native-fontawesome';
+import FontAwesome, { Icons } from 'react-native-fontawesome'
+import ImagePicker from 'react-native-image-picker'
 
-import { addTextItemToKernel } from '../../redux/actions/kernel'
+import {
+    addTextItem,
+    addImageItem
+} from '../../redux/actions/kernel'
 
 import DropcornSafeAreaView from '../atoms/DropcornSafeAreaView'
 import DropcornButton from '../atoms/DropcornButton'
@@ -21,6 +25,7 @@ class Home extends PureComponent {
         this._hideDropSomethingModal = this._hideDropSomethingModal.bind(this)
 
         this._handleTextSubmit = this._handleTextSubmit.bind(this)
+        this._handleImageButton = this._handleImageButton.bind(this)
         this.state = { _modalIsVisible:false }
     }
 
@@ -72,8 +77,31 @@ class Home extends PureComponent {
 
     }
 
-    _handleTextSubmit(){
-        this.props.addTextItemToKernel('andrewscool')
+    _handleImageButton(){
+        var options = {
+            title: 'Select Something to Drop',
+            storageOptions: {
+                skipBackup: true,
+                path: 'images'
+            }
+        }
+        ImagePicker.showImagePicker(options, (response) => {
+          if (response.didCancel) {
+              return
+          }
+          else if (response.error) {
+            console.log('ImagePicker Error: ', response.error)
+          }
+          else {
+            let { uri, fileName } = response
+            this.props.addImageItem(uri, fileName)
+          }
+        });
+
+    }
+
+    _handleTextSubmit(text){
+        this.props.addTextItem(text)
     }
 
     render () {
@@ -84,6 +112,7 @@ class Home extends PureComponent {
                     modalIsVisible={ this.state._modalIsVisible }
                     handleClose={ this._hideDropSomethingModal }
                     handleTextSubmit={ this._handleTextSubmit }
+                    handleImageButton={ this._handleImageButton }
                 />
             </DropcornSafeAreaView>
         );
@@ -94,7 +123,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = {
-    addTextItemToKernel
+    addTextItem,
+    addImageItem
 }
 
 export default connect(

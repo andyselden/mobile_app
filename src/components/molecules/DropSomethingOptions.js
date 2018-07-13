@@ -3,9 +3,15 @@ import { View, Text, TouchableOpacity, Dimensions } from 'react-native'
 import {styles as s} from "react-native-style-tachyons";
 import FontAwesome, { Icons } from 'react-native-fontawesome';
 
+import FontAwesomeSpin from '../atoms/FontAwesomeSpin'
+
 class DropSomethingOptions extends PureComponent {
      _handleTextButton = () => {
         this.props.handleTextButton()
+    }
+
+    _handleImageButton = () => {
+        this.props.handleImageButton()
     }
 
     render() {
@@ -20,14 +26,18 @@ class DropSomethingOptions extends PureComponent {
                          <Text style={[s.ff_light, s.typography, s.tc, s.f6, s.ma3]}>Share something digital with anyone around you for one minute</Text>
                          <View style={[s.flx_row, s.jcsb, s.jcsa]}>
                              <Text style={[ s.f2, s.typography_70, s.mt3 ]} >
-                                       <FontAwesome>{Icons.fileTextO}</FontAwesome>
-                                 </Text>
-                                 <Text style={[s.f2, s.typography_70, s.mt3 ]} >
-                                       <FontAwesome>{Icons.pictureO}</FontAwesome>
-                                 </Text>
-                                 <Text style={[s.f2, s.typography_70, s.mt3 ]} onPress={ this._handleTextButton }>
-                                       <FontAwesome>{Icons.paperPlaneO}</FontAwesome>
-                                 </Text>
+                                 <FontAwesome>
+                                     { Icons.fileTextO }
+                                 </FontAwesome>
+                             </Text>
+                             <Text style={[s.f2, s.typography_70, s.mt3 ]} onPress={ this._handleImageButton } >
+                                 <FontAwesome>
+                                     { Icons.pictureO }
+                                 </FontAwesome>
+                             </Text>
+                             <Text style={[s.f2, s.typography_70, s.mt3 ]} onPress={ this._handleTextButton } >
+                                   <FontAwesome>{Icons.paperPlaneO}</FontAwesome>
+                             </Text>
                 </View>
             </View>
         </View>

@@ -12,6 +12,9 @@ class DropSomethingModal extends PureComponent {
         super(props)
 
         this._goToOptionsRoot = this._goToOptionsRoot.bind(this)
+        this._handleFileButton = this._handleFileButton.bind(this)
+        this._handleImageButton = this._handleImageButton.bind(this)
+        this._handleClose = this._handleClose.bind(this)
         this._goToTextInput = this._goToTextInput.bind(this)
 
         this.state = { _activeModalAction: 'ROOT'}
@@ -22,11 +25,11 @@ class DropSomethingModal extends PureComponent {
     }
 
 
-    _handleTextSubmit = (inputValue) => {
+    _handleTextSubmit(inputValue){
         this.props.handleTextSubmit(inputValue)
     }
 
-    _handleClose = () => {
+    _handleClose(){
         this.props.handleClose()
     }
 
@@ -36,7 +39,11 @@ class DropSomethingModal extends PureComponent {
         })
     }
 
-    _handleImageButton = () => {
+    _handleFileButton(){
+        this.props.handleFileButton()
+    }
+
+    _handleImageButton(){
         this.props.handleImageButton()
     }
 
@@ -71,8 +78,9 @@ class DropSomethingModal extends PureComponent {
 
                 { this.state._activeModalAction == 'ROOT' ?
                         <DropSomethingOptions
-                            handleTextButton={ this._goToTextInput }
+                            handleFileButton={ this._handleFileButton }
                             handleImageButton={ this._handleImageButton }
+                            handleTextButton={ this._goToTextInput }
                         />
                     :
                     <DropSomethingText handleBackButton={ this._goToOptionsRoot } handleSubmitButton={ this._handleTextSubmit } inputDefaultValue=''/>

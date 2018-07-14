@@ -12,6 +12,7 @@ import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
 import com.reactnativenavigation.NavigationApplication;
+import com.reactnativedocumentpicker.ReactNativeDocumentPicker;; // Import package
 
 import io.invertase.firebase.RNFirebasePackage;
 // optional packages - add/remove as appropriate
@@ -52,9 +53,11 @@ public class MainApplication extends Application implements NavigationApplicatio
       return Arrays.<ReactPackage>asList(
         new MainReactPackage(),
             new RNFetchBlobPackage(),
-            new ImagePickerPackage(R.style.my_dialog_style)
+            new ImagePickerPackage(R.style.my_dialog_style),
             new VectorIconsPackage(),
             new RNFirebasePackage(),
+                        new ReactNativeDocumentPicker(),
+
         new RNFirebasePackage(),
         // add/remove these packages as appropriate
         new RNFirebaseAdMobPackage(),

@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { SafeAreaView } from 'react-native'
 import FontAwesome, { Icons } from 'react-native-fontawesome'
 import ImagePicker from 'react-native-image-picker'
+import { DocumentPicker, DocumentPickerUtil } from 'react-native-document-picker';
 
 import {
     addTextItem,
@@ -24,8 +25,9 @@ class Home extends PureComponent {
         this._showDropSomethingModal = this._showDropSomethingModal.bind(this)
         this._hideDropSomethingModal = this._hideDropSomethingModal.bind(this)
 
-        this._handleTextSubmit = this._handleTextSubmit.bind(this)
+        this._handleFileButton = this._handleFileButton.bind(this)
         this._handleImageButton = this._handleImageButton.bind(this)
+        this._handleTextSubmit = this._handleTextSubmit.bind(this)
         this.state = { _modalIsVisible:false }
     }
 
@@ -77,6 +79,30 @@ class Home extends PureComponent {
 
     }
 
+    _handleFileButton(){
+        DocumentPicker.show({
+      filetype: [DocumentPickerUtil.allFiles()],
+    },(error,res) => {
+      // Android
+      console.log(
+         res.uri,
+         res.type, // mime type
+         res.fileName,
+         res.fileSize
+      );
+    });
+        //// iPad
+        //const {pageX, pageY} = event.nativeEvent;
+        //
+        //DocumentPicker.show({
+        //  top: pageY,
+        //  left: pageX,
+        //  filetype: ['public.image'],
+        //}, (error, url) => {
+        //  alert(url);
+        //});
+    }
+
     _handleImageButton(){
         var options = {
             title: 'Select Something to Drop',
@@ -111,8 +137,9 @@ class Home extends PureComponent {
                 <DropSomethingModal
                     modalIsVisible={ this.state._modalIsVisible }
                     handleClose={ this._hideDropSomethingModal }
-                    handleTextSubmit={ this._handleTextSubmit }
+                    handleFileButton={ this._handleFileButton }
                     handleImageButton={ this._handleImageButton }
+                    handleTextSubmit={ this._handleTextSubmit }
                 />
             </DropcornSafeAreaView>
         );

@@ -11,6 +11,11 @@ import {
     addImageItem
 } from '../../redux/actions/kernel'
 
+import {
+   updatePermissions
+} from '../../redux/actions/locationBrowser'
+
+
 import DropcornSafeAreaView from '../atoms/DropcornSafeAreaView'
 import DropcornButton from '../atoms/DropcornButton'
 import DropSomethingButton from '../molecules/DropSomethingButton'
@@ -29,6 +34,10 @@ class Home extends PureComponent {
         this._handleImageButton = this._handleImageButton.bind(this)
         this._handleTextSubmit = this._handleTextSubmit.bind(this)
         this.state = { _modalIsVisible:false }
+    }
+
+    componentDidMount(){
+        this.props.updatePermissions(true)
     }
 
     static propTypes = {
@@ -151,7 +160,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
     addTextItem,
-    addImageItem
+    addImageItem,
+    updatePermissions
 }
 
 export default connect(

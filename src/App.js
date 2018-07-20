@@ -2,14 +2,12 @@ import React, { PureComponent } from 'react'
 import { Provider } from 'react-redux'
 import { Navigation } from 'react-native-navigation'
 import store from './redux/store'
-import { registerScreens } from './redux/navigation/Navigator';
+import { registerScreens } from './redux/navigation/Navigator'
 import {
     D_COLOR_PRIMARY,
 } from './styles/constants'
 
-
 registerScreens(store, Provider);
-
 
 const homeNavigatorStyle = {
     navBarHidden: true
@@ -27,6 +25,7 @@ class App extends PureComponent {
 
   onStoreUpdate() {
         let { signedIn } = store.getState().user
+            console.log(store.getState())
 
         if (this.currentRoot != signedIn) {
           this.currentRoot = signedIn;
@@ -35,7 +34,7 @@ class App extends PureComponent {
     }
 
   startApp(signedIn) {
-         switch (signedIn) {
+        switch (signedIn) {
         case true:
           Navigation.startSingleScreenApp({
                     screen: {

@@ -1,5 +1,6 @@
 import { call, fork, put, take, takeEvery } from 'redux-saga/effects'
 import { userActionTypes } from '../constants/actionTypes'
+import { locationBrowserActionTypes } from '../constants/actionTypes'
 import firebase from 'firebase'
 import {Navigation} from 'react-native-navigation'
 
@@ -26,7 +27,7 @@ function * signInSaga ({payload, actions}) {
     const { email, password } = payload
     const { resetForm, setErrors, setSubmitting } = actions
   try {
-    const userActionTypes = yield call(rsf.auth.signInWithEmailAndPassword, email, password);
+    const user = yield call(rsf.auth.signInWithEmailAndPassword, email, password);
     yield call(resetForm)
     yield put(signInFulfilled())
   }
@@ -42,7 +43,7 @@ function * signInSaga ({payload, actions}) {
 
 function * signOutSaga () {
   try {
-    const nulluserActionTypes = yield call(rsf.auth.signOut)
+    const user = yield call(rsf.auth.signOut)
     yield put(signOutFulfilled())
   } catch (error) {
     yield put(signOutRejected(error))
@@ -54,9 +55,9 @@ function * signUpSaga ({payload, actions}) {
     const { resetForm, setErrors, setSubmitting } = actions
 
   try {
-    const userActionTypes = yield call(rsf.auth.createuserActionTypesWithEmailAndPassword, email, password);
-    yield call(resetForm)
-    yield put(signUpFulfilled(userActionTypes));
+    const user = yield call(rsf.auth.createUserWithEmailAndPassword, email, password);
+      yield call(resetForm)
+      yield put(signUpFulfilled(user));
   }
   catch(error) {
     yield put(signUpRejected(error));
@@ -124,11 +125,12 @@ function * syncUserSaga () {
      }
      else {
          yield put(syncUser(null))
+        yield put({ type: locationBrowserActionTypes.BACKGROUND_TRACKING_OFF.REQUESTED })
      }
  }
 }
 
-export default function * userActionTypesRootSaga () {
+export default function * userRootSaga () {
   yield fork(syncUserSaga)
 
   yield [

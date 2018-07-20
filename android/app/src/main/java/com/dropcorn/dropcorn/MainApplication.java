@@ -3,6 +3,7 @@ package com.dropcorn.dropcorn;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.onradar.react.RNRadarPackage;
 import com.RNFetchBlob.RNFetchBlobPackage;
 import com.imagepicker.ImagePickerPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
@@ -13,6 +14,7 @@ import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
 import com.reactnativenavigation.NavigationApplication;
 import com.reactnativedocumentpicker.ReactNativeDocumentPicker;; // Import package
+import com.onradar.sdk.Radar;
 
 import io.invertase.firebase.RNFirebasePackage;
 // optional packages - add/remove as appropriate
@@ -52,6 +54,7 @@ public class MainApplication extends Application implements NavigationApplicatio
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
         new MainReactPackage(),
+            new RNRadarPackage(),
             new RNFetchBlobPackage(),
             new ImagePickerPackage(R.style.my_dialog_style),
             new VectorIconsPackage(),
@@ -90,6 +93,8 @@ public class MainApplication extends Application implements NavigationApplicatio
   @Override
   public void onCreate() {
     super.onCreate();
+    Radar.initialize(this);
+    Radar.setPlacesProvider(Radar.RadarPlacesProvider.FACEBOOK);
     SoLoader.init(this, /* native exopackage */ false);
   }
   

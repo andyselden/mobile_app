@@ -35,16 +35,27 @@
 		2D02E4C91E0B4AEC006451C7 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
 		2DCD954D1E0B4F2C00145EB5 /* DropcornTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* DropcornTests.m */; };
 		4905FAF120F606E400CE3561 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4905FAF020F606E400CE3561 /* GoogleService-Info.plist */; };
+		49216B1120FFA4C200ED28F7 /* RadarSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49216B1020FFA4C100ED28F7 /* RadarSDK.framework */; };
+		49216B1B20FFA4CB00ED28F7 /* AccountKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49216B1220FFA4CA00ED28F7 /* AccountKit.framework */; };
+		49216B1C20FFA4CB00ED28F7 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49216B1320FFA4CA00ED28F7 /* Bolts.framework */; };
+		49216B1D20FFA4CB00ED28F7 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49216B1420FFA4CA00ED28F7 /* FBSDKCoreKit.framework */; };
+		49216B1E20FFA4CB00ED28F7 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49216B1520FFA4CA00ED28F7 /* FBSDKShareKit.framework */; };
+		49216B1F20FFA4CB00ED28F7 /* FBNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49216B1620FFA4CA00ED28F7 /* FBNotifications.framework */; };
+		49216B2020FFA4CB00ED28F7 /* FBSDKMarketingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49216B1720FFA4CA00ED28F7 /* FBSDKMarketingKit.framework */; };
+		49216B2120FFA4CB00ED28F7 /* FBSDKMessengerShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49216B1820FFA4CA00ED28F7 /* FBSDKMessengerShareKit.framework */; };
+		49216B2220FFA4CB00ED28F7 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49216B1920FFA4CA00ED28F7 /* FBSDKLoginKit.framework */; };
+		49216B2320FFA4CB00ED28F7 /* FBSDKPlacesKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49216B1A20FFA4CA00ED28F7 /* FBSDKPlacesKit.framework */; };
 		492E6EF620F5F585009AACD2 /* libRNImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 492E6EF520F5F4CE009AACD2 /* libRNImagePicker.a */; };
 		4930170420C85EAF00132DC1 /* libReactNativeNavigation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4930170320C85CE200132DC1 /* libReactNativeNavigation.a */; };
 		493D3E3A20E5EC2B002BE140 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 493D3E1220E5EC2B002BE140 /* FontAwesome.ttf */; };
 		494EA48E20F95C4500AF2B26 /* libRNDocumentPicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 494EA48A20F95C2E00AF2B26 /* libRNDocumentPicker.a */; };
 		49527EFE20E295680016FCCD /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49527EFD20E295430016FCCD /* libRNVectorIcons.a */; };
+		496483DB20FF85AE00E9FBBA /* BarutaBlack.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 496483D520FF858800E9FBBA /* BarutaBlack.ttf */; };
+		496483DC20FF85AE00E9FBBA /* Oxygen-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 496483D620FF858800E9FBBA /* Oxygen-Bold.ttf */; };
+		496483DD20FF85AE00E9FBBA /* Oxygen-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 496483D320FF858700E9FBBA /* Oxygen-Light.ttf */; };
+		496483DE20FF85AE00E9FBBA /* Oxygen-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 496483D420FF858700E9FBBA /* Oxygen-Regular.ttf */; };
 		49A51DA520F6470400F6527D /* libRNFetchBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A51DA320F646F500F6527D /* libRNFetchBlob.a */; };
-		49B5A88320B3062700C1FB81 /* Oxygen-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 49B5A87E20B3062700C1FB81 /* Oxygen-Light.ttf */; };
-		49B5A88420B3062700C1FB81 /* Oxygen-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 49B5A87F20B3062700C1FB81 /* Oxygen-Regular.ttf */; };
-		49B5A88520B3062700C1FB81 /* BarutaBlack.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 49B5A88020B3062700C1FB81 /* BarutaBlack.ttf */; };
-		49B5A88720B3062700C1FB81 /* Oxygen-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 49B5A88220B3062700C1FB81 /* Oxygen-Bold.ttf */; };
+		49BB6AFB20FFD10F0021AC5B /* libRNRadar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 492CCD7220FFCA8C00699F46 /* libRNRadar.a */; };
 		49DC560720E292F0005A3EEA /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 49DC55FD20E292EF005A3EEA /* SimpleLineIcons.ttf */; };
 		49DC560820E292F0005A3EEA /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 49DC55FE20E292EF005A3EEA /* Zocial.ttf */; };
 		49DC560920E292F0005A3EEA /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 49DC55FF20E292EF005A3EEA /* Ionicons.ttf */; };
@@ -222,6 +233,13 @@
 			remoteGlobalIDString = 3D3CD9181DE5FBD800167DC4;
 			remoteInfo = "jschelpers-tvOS";
 		};
+		492CCD7120FFCA8C00699F46 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DEF96194F6CB410BB26F87F6 /* RNRadar.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RNRadar;
+		};
 		492E6EF420F5F4CE009AACD2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 492E6EF020F5F4CE009AACD2 /* RNImagePicker.xcodeproj */;
@@ -394,17 +412,28 @@
 		2D02E47B1E0B4A5D006451C7 /* Dropcorn-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dropcorn-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* Dropcorn-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Dropcorn-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4905FAF020F606E400CE3561 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Dropcorn/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		49216B1020FFA4C100ED28F7 /* RadarSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RadarSDK.framework; path = ../../../Documents/RadarSDK/RadarSDK.framework; sourceTree = "<group>"; };
+		49216B1220FFA4CA00ED28F7 /* AccountKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AccountKit.framework; path = ../../../Documents/FacebookSDK/AccountKit.framework; sourceTree = "<group>"; };
+		49216B1320FFA4CA00ED28F7 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = ../../../Documents/FacebookSDK/Bolts.framework; sourceTree = "<group>"; };
+		49216B1420FFA4CA00ED28F7 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../../Documents/FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		49216B1520FFA4CA00ED28F7 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../../Documents/FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
+		49216B1620FFA4CA00ED28F7 /* FBNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBNotifications.framework; path = ../../../Documents/FacebookSDK/FBNotifications.framework; sourceTree = "<group>"; };
+		49216B1720FFA4CA00ED28F7 /* FBSDKMarketingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKMarketingKit.framework; path = ../../../Documents/FacebookSDK/FBSDKMarketingKit.framework; sourceTree = "<group>"; };
+		49216B1820FFA4CA00ED28F7 /* FBSDKMessengerShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKMessengerShareKit.framework; path = ../../../Documents/FacebookSDK/FBSDKMessengerShareKit.framework; sourceTree = "<group>"; };
+		49216B1920FFA4CA00ED28F7 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../../Documents/FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		49216B1A20FFA4CA00ED28F7 /* FBSDKPlacesKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKPlacesKit.framework; path = ../../../Documents/FacebookSDK/FBSDKPlacesKit.framework; sourceTree = "<group>"; };
 		492E6EF020F5F4CE009AACD2 /* RNImagePicker.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNImagePicker.xcodeproj; path = "../node_modules/react-native-image-picker/ios/RNImagePicker.xcodeproj"; sourceTree = "<group>"; };
 		492FCB9120ADC9D1005B4D19 /* Dropcorn.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = Dropcorn.entitlements; path = Dropcorn/Dropcorn.entitlements; sourceTree = "<group>"; };
 		493016FE20C85CE200132DC1 /* ReactNativeNavigation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactNativeNavigation.xcodeproj; path = "../node_modules/react-native-navigation/ios/ReactNativeNavigation.xcodeproj"; sourceTree = "<group>"; };
 		493D3E1220E5EC2B002BE140 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.ttf; path = "../../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		494EA45F20F95C2E00AF2B26 /* RNDocumentPicker.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNDocumentPicker.xcodeproj; path = "../node_modules/react-native-document-picker/ios/RNDocumentPicker.xcodeproj"; sourceTree = "<group>"; };
 		49527ED220E295430016FCCD /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
+		496483D320FF858700E9FBBA /* Oxygen-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Oxygen-Light.ttf"; path = "../../assets/fonts/Oxygen-Light.ttf"; sourceTree = "<group>"; };
+		496483D420FF858700E9FBBA /* Oxygen-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Oxygen-Regular.ttf"; path = "../../assets/fonts/Oxygen-Regular.ttf"; sourceTree = "<group>"; };
+		496483D520FF858800E9FBBA /* BarutaBlack.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = BarutaBlack.ttf; path = ../../assets/fonts/BarutaBlack.ttf; sourceTree = "<group>"; };
+		496483D620FF858800E9FBBA /* Oxygen-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Oxygen-Bold.ttf"; path = "../../assets/fonts/Oxygen-Bold.ttf"; sourceTree = "<group>"; };
+		498C327520FA9E7900473728 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		49A51D9E20F646F500F6527D /* RNFetchBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNFetchBlob.xcodeproj; path = "../node_modules/rn-fetch-blob/ios/RNFetchBlob.xcodeproj"; sourceTree = "<group>"; };
-		49B5A87E20B3062700C1FB81 /* Oxygen-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Oxygen-Light.ttf"; path = "../../assets/fonts/Oxygen-Light.ttf"; sourceTree = "<group>"; };
-		49B5A87F20B3062700C1FB81 /* Oxygen-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Oxygen-Regular.ttf"; path = "../../assets/fonts/Oxygen-Regular.ttf"; sourceTree = "<group>"; };
-		49B5A88020B3062700C1FB81 /* BarutaBlack.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = BarutaBlack.ttf; path = ../../assets/fonts/BarutaBlack.ttf; sourceTree = "<group>"; };
-		49B5A88220B3062700C1FB81 /* Oxygen-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Oxygen-Bold.ttf"; path = "../../assets/fonts/Oxygen-Bold.ttf"; sourceTree = "<group>"; };
 		49DC55FD20E292EF005A3EEA /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = SimpleLineIcons.ttf; path = "../../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		49DC55FE20E292EF005A3EEA /* Zocial.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Zocial.ttf; sourceTree = "<group>"; };
 		49DC55FF20E292EF005A3EEA /* Ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Ionicons.ttf; sourceTree = "<group>"; };
@@ -419,6 +448,7 @@
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
+		DEF96194F6CB410BB26F87F6 /* RNRadar.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNRadar.xcodeproj; path = "../node_modules/react-native-radar/ios/RNRadar.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -440,16 +470,27 @@
 				49527EFE20E295680016FCCD /* libRNVectorIcons.a in Frameworks */,
 				4930170420C85EAF00132DC1 /* libReactNativeNavigation.a in Frameworks */,
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
+				49216B1120FFA4C200ED28F7 /* RadarSDK.framework in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
+				49216B1E20FFA4CB00ED28F7 /* FBSDKShareKit.framework in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
+				49216B1B20FFA4CB00ED28F7 /* AccountKit.framework in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
 				00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */,
+				49216B1F20FFA4CB00ED28F7 /* FBNotifications.framework in Frameworks */,
+				49216B2320FFA4CB00ED28F7 /* FBSDKPlacesKit.framework in Frameworks */,
 				00C302E81ABCBA2D00DB3ED1 /* libRCTImage.a in Frameworks */,
+				49216B2020FFA4CB00ED28F7 /* FBSDKMarketingKit.framework in Frameworks */,
+				49216B2220FFA4CB00ED28F7 /* FBSDKLoginKit.framework in Frameworks */,
 				133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */,
 				00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */,
 				139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */,
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
+				49216B2120FFA4CB00ED28F7 /* FBSDKMessengerShareKit.framework in Frameworks */,
+				49216B1C20FFA4CB00ED28F7 /* Bolts.framework in Frameworks */,
+				49216B1D20FFA4CB00ED28F7 /* FBSDKCoreKit.framework in Frameworks */,
+				49BB6AFB20FFD10F0021AC5B /* libRNRadar.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 			);
@@ -598,6 +639,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		492CCD6E20FFCA8C00699F46 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				492CCD7220FFCA8C00699F46 /* libRNRadar.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		492E6EF120F5F4CE009AACD2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -641,6 +690,17 @@
 		49A51DA420F6470400F6527D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				49216B1220FFA4CA00ED28F7 /* AccountKit.framework */,
+				49216B1320FFA4CA00ED28F7 /* Bolts.framework */,
+				49216B1620FFA4CA00ED28F7 /* FBNotifications.framework */,
+				49216B1420FFA4CA00ED28F7 /* FBSDKCoreKit.framework */,
+				49216B1920FFA4CA00ED28F7 /* FBSDKLoginKit.framework */,
+				49216B1720FFA4CA00ED28F7 /* FBSDKMarketingKit.framework */,
+				49216B1820FFA4CA00ED28F7 /* FBSDKMessengerShareKit.framework */,
+				49216B1A20FFA4CA00ED28F7 /* FBSDKPlacesKit.framework */,
+				49216B1520FFA4CA00ED28F7 /* FBSDKShareKit.framework */,
+				49216B1020FFA4C100ED28F7 /* RadarSDK.framework */,
+				498C327520FA9E7900473728 /* CoreLocation.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -659,10 +719,10 @@
 				49DC560620E292EF005A3EEA /* Octicons.ttf */,
 				49DC55FD20E292EF005A3EEA /* SimpleLineIcons.ttf */,
 				49DC55FE20E292EF005A3EEA /* Zocial.ttf */,
-				49B5A88020B3062700C1FB81 /* BarutaBlack.ttf */,
-				49B5A88220B3062700C1FB81 /* Oxygen-Bold.ttf */,
-				49B5A87E20B3062700C1FB81 /* Oxygen-Light.ttf */,
-				49B5A87F20B3062700C1FB81 /* Oxygen-Regular.ttf */,
+				496483D520FF858800E9FBBA /* BarutaBlack.ttf */,
+				496483D620FF858800E9FBBA /* Oxygen-Bold.ttf */,
+				496483D320FF858700E9FBBA /* Oxygen-Light.ttf */,
+				496483D420FF858700E9FBBA /* Oxygen-Regular.ttf */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -705,6 +765,7 @@
 				832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */,
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
+				DEF96194F6CB410BB26F87F6 /* RNRadar.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -782,6 +843,7 @@
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
+				49A9A3CA20FCB8F30064F330 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -845,6 +907,9 @@
 						DevelopmentTeam = D4P9UM8J7M;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};
@@ -939,6 +1004,10 @@
 				{
 					ProductGroup = 492E6EF120F5F4CE009AACD2 /* Products */;
 					ProjectRef = 492E6EF020F5F4CE009AACD2 /* RNImagePicker.xcodeproj */;
+				},
+				{
+					ProductGroup = 492CCD6E20FFCA8C00699F46 /* Products */;
+					ProjectRef = DEF96194F6CB410BB26F87F6 /* RNRadar.xcodeproj */;
 				},
 				{
 					ProductGroup = 49527ED320E295430016FCCD /* Products */;
@@ -1103,6 +1172,13 @@
 			remoteRef = 3DAD3EAE1DF850E9000B6D8A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		492CCD7220FFCA8C00699F46 /* libRNRadar.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNRadar.a;
+			remoteRef = 492CCD7120FFCA8C00699F46 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		492E6EF520F5F4CE009AACD2 /* libRNImagePicker.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1264,6 +1340,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				496483DB20FF85AE00E9FBBA /* BarutaBlack.ttf in Resources */,
+				496483DC20FF85AE00E9FBBA /* Oxygen-Bold.ttf in Resources */,
+				496483DD20FF85AE00E9FBBA /* Oxygen-Light.ttf in Resources */,
+				496483DE20FF85AE00E9FBBA /* Oxygen-Regular.ttf in Resources */,
 				49DC560920E292F0005A3EEA /* Ionicons.ttf in Resources */,
 				49DC560D20E292F0005A3EEA /* Entypo.ttf in Resources */,
 				49DC560E20E292F0005A3EEA /* Feather.ttf in Resources */,
@@ -1274,14 +1354,10 @@
 				49DC560F20E292F0005A3EEA /* EvilIcons.ttf in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				49DC560C20E292F0005A3EEA /* MaterialIcons.ttf in Resources */,
-				49B5A88720B3062700C1FB81 /* Oxygen-Bold.ttf in Resources */,
 				4905FAF120F606E400CE3561 /* GoogleService-Info.plist in Resources */,
 				49DC560820E292F0005A3EEA /* Zocial.ttf in Resources */,
-				49B5A88520B3062700C1FB81 /* BarutaBlack.ttf in Resources */,
 				49DC560720E292F0005A3EEA /* SimpleLineIcons.ttf in Resources */,
 				49DC560B20E292F0005A3EEA /* Foundation.ttf in Resources */,
-				49B5A88420B3062700C1FB81 /* Oxygen-Regular.ttf in Resources */,
-				49B5A88320B3062700C1FB81 /* Oxygen-Light.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1330,6 +1406,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+		};
+		49A9A3CA20FCB8F30064F330 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1404,12 +1493,23 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				HEADER_SEARCH_PATHS = "$(inherited)";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-radar/ios",
+					"$(SRCROOT)/../node_modules/react-native-radar/ios",
+					"$(SRCROOT)/../node_modules/react-native-radar/ios",
+					"$(SRCROOT)/../node_modules/react-native-radar/ios",
+					"$(SRCROOT)/../node_modules/react-native-radar/ios",
+				);
 				INFOPLIST_FILE = DropcornTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
@@ -1426,12 +1526,23 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
-				HEADER_SEARCH_PATHS = "$(inherited)";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-radar/ios",
+					"$(SRCROOT)/../node_modules/react-native-radar/ios",
+					"$(SRCROOT)/../node_modules/react-native-radar/ios",
+					"$(SRCROOT)/../node_modules/react-native-radar/ios",
+					"$(SRCROOT)/../node_modules/react-native-radar/ios",
+				);
 				INFOPLIST_FILE = DropcornTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
@@ -1454,13 +1565,24 @@
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = D4P9UM8J7M;
 				DISPLAY_NAME = Dropcorn;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				HEADER_SEARCH_PATHS = (
+				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/../node_modules/react-native-navigation/ios/**",
+					"~/Documents/RadarSDK",
+					"~/Documents/FacebookSDK",
+				);
+				HEADER_SEARCH_PATHS = (
+					"~/Documents/RadarSDK",
+					"~/Documents/FacebookSDK",
+					"$(SRCROOT)/../node_modules/react-native-radar/ios",
+					"$(PROJECT_DIR)/../node_modules/react-native-navigation/ios",
+					"$(SRCROOT)/../react-native/**",
 				);
 				INFOPLIST_FILE = Dropcorn/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -1470,6 +1592,7 @@
 				PRODUCT_NAME = Dropcorn;
 				PROVISIONING_PROFILE = "2fb83cef-a6fb-4469-8f01-2b14add3d6a8";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development com.dropcorn.dropcorn";
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1484,13 +1607,24 @@
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = D4P9UM8J7M;
 				DISPLAY_NAME = Dropcorn;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				HEADER_SEARCH_PATHS = (
+				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/../node_modules/react-native-navigation/ios/**",
+					"~/Documents/RadarSDK",
+					"~/Documents/FacebookSDK",
+				);
+				HEADER_SEARCH_PATHS = (
+					"~/Documents/RadarSDK",
+					"~/Documents/FacebookSDK",
+					"$(SRCROOT)/../node_modules/react-native-radar/ios",
+					"$(PROJECT_DIR)/../node_modules/react-native-navigation/ios",
+					"$(SRCROOT)/../react-native/**",
 				);
 				INFOPLIST_FILE = Dropcorn/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -1500,6 +1634,7 @@
 				PRODUCT_NAME = Dropcorn;
 				PROVISIONING_PROFILE = "17eca12f-2f80-4556-aea6-b6cb2af1c91e";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.dropcorn.dropcorn";
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
@@ -1516,11 +1651,22 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				HEADER_SEARCH_PATHS = "$(inherited)";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-radar/ios",
+					"$(SRCROOT)/../node_modules/react-native-radar/ios",
+					"$(SRCROOT)/../node_modules/react-native-radar/ios",
+					"$(SRCROOT)/../node_modules/react-native-radar/ios",
+					"$(SRCROOT)/../node_modules/react-native-radar/ios",
+				);
 				INFOPLIST_FILE = "Dropcorn-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
@@ -1547,11 +1693,22 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
-				HEADER_SEARCH_PATHS = "$(inherited)";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-radar/ios",
+					"$(SRCROOT)/../node_modules/react-native-radar/ios",
+					"$(SRCROOT)/../node_modules/react-native-radar/ios",
+					"$(SRCROOT)/../node_modules/react-native-radar/ios",
+					"$(SRCROOT)/../node_modules/react-native-radar/ios",
+				);
 				INFOPLIST_FILE = "Dropcorn-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
@@ -1582,6 +1739,10 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.Dropcorn-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1606,6 +1767,10 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.Dropcorn-tvOSTests";

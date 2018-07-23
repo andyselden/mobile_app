@@ -9,15 +9,11 @@ var config = {
   databaseURL: params.firebase.databaseURL,
   projectId: params.firebase.projectId,
   storageBucket: params.firebase.storageBucket,
-  messagingSenderId: params.firebase.messagingSenderId
+  messagingSenderId: params.firebase.messagingSenderId,
 }
 
 const myFirebaseApp = firebase.initializeApp(config);
-
-// const firestore = myFirebaseApp.firestore();
-//  const settings = { timestampsInSnapshots: true};
-//  firestore.settings(settings);
-
 const rsf = new ReduxSagaFirebase(myFirebaseApp)
-
+const settings = {timestampsInSnapshots: true};
+firebase.firestore().settings(settings);
 export default rsf

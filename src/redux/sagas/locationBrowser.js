@@ -21,6 +21,28 @@ function * initializeRadar(){
     }
 }
 
+function * syncKernelsSaga()
+{
+     var time = new Date();
+    time.setSeconds(time.getSeconds() - 60);
+    const channel = rsf.firestore.channel(firebase.firestore().collection('kernels').where("updatedAct", "<", time))
+    try{
+        const snapshot = yield call(
+            rsf.firestore.getCollection,
+            itemsCollectionRef.where("updatedAt", "<", time)
+        )
+
+    try{
+        while (true) {
+            const kernels  = yield take(channel)
+            console.log(kernels)
+            yield put({ type: locationBrowserActionTypes.SYNC_KERNELS, kernels })
+        }
+    } catch(error) {
+        console.log(error)
+    }
+}
+
 function * getUserLocationSaga(){
     const { location } = yield call(() => Radar.trackOnce())
     yield put({ type: locationBrowserActionTypes.UPDATE_LOCATION.FULFILLED, location })
@@ -107,6 +129,7 @@ export default function * rootSaga () {
     if(!initialized) yield call(initializeRadar)
     yield fork(backgroundLocationUpdatesChannel)
     yield fork(backgroundLocationErrorsChannel)
+    yield fork(syncKernelsSaga)
     yield [
         takeEvery(locationBrowserActionTypes.UPDATE_PERMISSIONS.REQUESTED, updatePermissionsSaga),
         takeEvery(locationBrowserActionTypes.BACKGROUND_TRACKING_ON.REQUESTED, backgroundTrackingOnSaga),

@@ -79,7 +79,8 @@ export const locationBrowserActionTypes = {
         REQUESTED: 'UPDATE_LOCATION_KERNELS.REQUESTED',
         FULFILLED: 'UPDATE_LOCATION_KERNELS.FULFILLED',
         REJECTED: 'UPDATE_LOCATION_KERNELS.REJECTED'
-    }
+    },
+    SYNC_KERNELS: 'LOCATION_BROWSER.SYNC_KERNELS'
 }
 
 export const alertActionTypes = {

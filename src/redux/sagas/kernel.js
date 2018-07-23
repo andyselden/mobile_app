@@ -6,7 +6,8 @@ import rsf from '../rsf'
 function * addTextItemSaga (action) {
     try{
         const user = yield select(state => state.user.user)
-        yield fork(
+        const { latitude, longitude } = yield select(state => state.locationBrowser.location)
+        const clearOutdatedItemsTask = yield fork(
             clearOutdatedItemsSaga,
             firebase.firestore().collection('kernels').doc(user.uid).collection('items')
         )
@@ -25,7 +26,8 @@ function * addTextItemSaga (action) {
             updateDocSaga,
             firebase.firestore().collection('kernels').doc(user.uid),
             {
-                updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+                updatedAt: new firebase.firestore.FieldValue.serverTimestamp(),
+                location: new firebase.firestore.GeoPoint(latitude, longitude)
             }
         )
 
@@ -148,7 +150,6 @@ function * clearOutdatedItemsSaga ( itemsCollectionRef ) {
             itemsCollectionRef.where("updatedAt", "<", time)
         )
         yield snapshot.docs.map(item => call(rsf.firestore.deleteDocument, itemsCollectionRef.doc(item.id)))
-
     } catch(error){
         throw error
     }

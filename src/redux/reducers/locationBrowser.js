@@ -2,7 +2,7 @@ import { locationBrowserActionTypes } from '../constants/actionTypes'
 
 const initialState = {
     permissionsStatus: '',
-    kernelList: [],
+    kernelList: '',
     location: {
         accuracy: 0,
         latitude: '',
@@ -78,6 +78,11 @@ export default function locationBrowserReducer (state = initialState, action = {
           ...state,
           backgroundTrackingOn: false
       }
+    case locationBrowserActionTypes.SYNC_KERNELS:
+        return {
+            ...state,
+            kernelList: action.kernels
+        }
     default:
       return state
   }

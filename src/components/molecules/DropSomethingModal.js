@@ -12,6 +12,7 @@ class DropSomethingModal extends PureComponent {
         super(props)
 
         this._goToOptionsRoot = this._goToOptionsRoot.bind(this)
+        this._handleTextSubmit = this._handleTextSubmit.bind(this)
         this._handleFileButton = this._handleFileButton.bind(this)
         this._handleImageButton = this._handleImageButton.bind(this)
         this._handleClose = this._handleClose.bind(this)

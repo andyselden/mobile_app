@@ -73,3 +73,8 @@ export const updateLocationKernelsRejected = (error) => ({
   type: locationBrowserActionTypes.UPDATE_LOCATION_KERNELS.REJECTED,
   error
 })
+
+export const syncKernels = (kernels) => ({
+  type: locationBrowserActionTypes.SYNC_KERNELS,
+  kernels
+})

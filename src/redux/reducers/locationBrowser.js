@@ -2,7 +2,7 @@ import { locationBrowserActionTypes } from '../constants/actionTypes'
 
 const initialState = {
     permissionsStatus: '',
-    kernelList: '',
+    kernelList: [],
     location: {
         accuracy: 0,
         latitude: '',

@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { SafeAreaView } from 'react-native'
+import { SafeAreaView, Text } from 'react-native'
 import FontAwesome, { Icons } from 'react-native-fontawesome'
 import ImagePicker from 'react-native-image-picker'
 import { DocumentPicker, DocumentPickerUtil } from 'react-native-document-picker';
@@ -142,6 +142,9 @@ class Home extends PureComponent {
     render () {
         return (
             <DropcornSafeAreaView>
+            { this.props.kernels.map(kernel =>
+                <Text>{kernel.id}</Text>
+                    )}
                 <DropSomethingButton onPress={ this._showDropSomethingModal } buttonText='Drop Something' />
                 <DropSomethingModal
                     modalIsVisible={ this.state._modalIsVisible }
@@ -156,6 +159,7 @@ class Home extends PureComponent {
 }
 
 const mapStateToProps = state => ({
+    kernels: state.locationBrowser.kernelList
 })
 
 const mapDispatchToProps = {

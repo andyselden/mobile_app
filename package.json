@@ -32,6 +32,7 @@
     "fbjs": "^0.8.16",
     "firebase": "^5.3.0",
     "formik": "^0.11.11",
+    "geofirestore": "^2.0.2",
     "moment": "^2.22.2",
     "prop-types": "^15.6.1",
     "react": "^16.3.1",
@@ -52,6 +53,7 @@
     "redux-saga": "^0.16.0",
     "redux-saga-firebase": "^0.14.0",
     "rn-fetch-blob": "^0.10.11",
+    "shortid": "^2.2.12",
     "styled-components": "^3.3.3",
     "yup": "^0.25.1"
   }

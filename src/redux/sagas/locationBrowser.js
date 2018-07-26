@@ -21,21 +21,23 @@ function * initializeRadar(){
     }
 }
 
+  function kernelsTransformer(kernels){
+  const res = []
+  kernels.forEach(doc => res.push({
+    id: doc.id,
+    ...doc.data()
+  }))
+  return res
+}
 function * syncKernelsSaga()
 {
-     var time = new Date();
+    var time = new Date();
     time.setSeconds(time.getSeconds() - 60);
-    const channel = rsf.firestore.channel(firebase.firestore().collection('kernels').where("updatedAct", "<", time))
-    try{
-        const snapshot = yield call(
-            rsf.firestore.getCollection,
-            itemsCollectionRef.where("updatedAt", "<", time)
-        )
-
+    const channel = rsf.firestore.channel(firebase.firestore().collection('kernels').where("updatedAt", ">", time))
     try{
         while (true) {
-            const kernels  = yield take(channel)
-            console.log(kernels)
+            const rawData = yield take(channel)
+            const kernels = kernelsTransformer(rawData)
             yield put({ type: locationBrowserActionTypes.SYNC_KERNELS, kernels })
         }
     } catch(error) {

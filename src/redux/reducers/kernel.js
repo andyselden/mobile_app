@@ -1,6 +1,9 @@
 import { kernelActionTypes } from '../constants/actionTypes'
 
 const initialState = {
+    items: [],
+    timerIsRunning: false,
+    secondsToDeletion: 0,
     loading: false,
     error: ''
 }
@@ -29,6 +32,31 @@ export default function kernelReducer (state = initialState, action = {}) {
           loading: false,
           error: action.error
       }
+    case kernelActionTypes.TIMER.START:
+      return {
+          ...state,
+          timerIsRunning: true
+      }
+    case kernelActionTypes.TIMER.STOP:
+      return {
+          ...state,
+          timerIsRunning: false
+      }
+    case kernelActionTypes.TIMER.TICK:
+      return {
+          ...state,
+          secondsToDeletion: state.secondsToDeletion + 1
+      }
+    case kernelActionTypes.TIMER.RESET:
+      return {
+          ...state,
+          secondsToDeletion: 0
+      }
+    case kernelActionTypes.KERNEL_ITEMS_UPDATE:
+          return {
+            ...state,
+            items: action.items
+          }
     default:
       return state
   }

@@ -5,8 +5,9 @@ export const addTextItem = (text) => ({
   text
 })
 
-export const addTextItemFulfilled = () => ({
-  type: kernelActionTypes.ADD_TEXT_ITEM.FULFILLED
+export const addTextItemFulfilled = error => ({
+  type: kernelActionTypes.ADD_TEXT_ITEM.FULFILLED,
+  error
 })
 
 export const addTextItemRejected = error => ({
@@ -19,8 +20,9 @@ export const addFileItem = (item) => ({
   item
 })
 
-export const addFileItemFulfilled = () => ({
-  type: kernelActionTypes.ADD_FILE_ITEM.FULFILLED
+export const addFileItemFulfilled = error => ({
+  type: kernelActionTypes.ADD_FILE_ITEM.FULFILLED,
+  error
 })
 
 export const addFileItemRejected = error => ({
@@ -34,8 +36,9 @@ export const addImageItem = (uri, fileName) => ({
     fileName
 })
 
-export const addImageItemFulfilled = () => ({
-  type: kernelActionTypes.ADD_IMAGE_ITEM.FULFILLED
+export const addImageItemFulfilled = error => ({
+  type: kernelActionTypes.ADD_IMAGE_ITEM.FULFILLED,
+  error
 })
 
 export const addImageItemRejected = error => ({
@@ -43,6 +46,23 @@ export const addImageItemRejected = error => ({
   error
 })
 
-export const updateTimestamp = () => ({
-    type: kernelActionTypes.KERNEL.UPDATE_TIMESTAMP
+export const startTimer = () => ({
+    type: kernelActionTypes.TIMER.START
+})
+
+export const stopTimer = () => ({
+    type: kernelActionTypes.TIMER.STOP
+})
+
+export const tickTimer = () => ({
+    type: kernelActionTypes.TIMER.TICK
+})
+
+export const resetTimer = () => ({
+    type: kernelActionTypes.TIMER.RESET
+})
+
+export const updateKernelItems = (items) => ({
+    type: kernelActionTypes.KERNEL_ITEMS_SYNC,
+    items
 })

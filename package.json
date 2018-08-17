@@ -56,6 +56,7 @@
     "rn-fetch-blob": "^0.10.11",
     "shortid": "^2.2.12",
     "styled-components": "^3.3.3",
+    "validator": "^10.6.0",
     "yup": "^0.25.1"
   }
 }

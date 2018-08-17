@@ -5,6 +5,7 @@ import { SafeAreaView, Text } from 'react-native'
 import FontAwesome, { Icons } from 'react-native-fontawesome'
 import ImagePicker from 'react-native-image-picker'
 import { DocumentPicker, DocumentPickerUtil } from 'react-native-document-picker';
+import validator from 'validator';
 
 import {
     addTextItem,
@@ -15,6 +16,11 @@ import {
 import {
    updatePermissions
 } from '../../redux/actions/locationBrowser'
+
+import {
+    readFromClipboard,
+    writeToClipboard
+} from '../../redux/actions/clipboard'
 
 
 import DropcornSafeAreaView from '../atoms/DropcornSafeAreaView'
@@ -35,6 +41,7 @@ class Home extends PureComponent {
         this._handleFileButton = this._handleFileButton.bind(this)
         this._handleImageButton = this._handleImageButton.bind(this)
         this._handleTextSubmit = this._handleTextSubmit.bind(this)
+        this._handleItemSelected = this._handleItemSelected.bind(this)
         this.state = { _modalIsVisible:false }
     }
 
@@ -76,6 +83,7 @@ class Home extends PureComponent {
     }
 
     _showDropSomethingModal(){
+        this.props.readFromClipboard()
         this.setState({
           _modalIsVisible:true
         })
@@ -116,6 +124,7 @@ class Home extends PureComponent {
           if (response.didCancel) {
               return
           }
+
           else if (response.error) {
             console.log('ImagePicker Error: ', response.error)
           }
@@ -131,10 +140,36 @@ class Home extends PureComponent {
         this.props.addTextItem(text)
     }
 
+    _handleItemSelected(item){
+
+        //Handle URL
+        if(item.itemType == "TEXT" && validator.isURL(item.text.toLowerCase())){
+            const url = item.text.toLowerCase()
+            if(!validator.isURL(url, {require_protocol: true}))
+            {
+                url = 'https://' +  url
+            }
+            Linking.canOpenURL(url).then(supported => {
+              if (!supported) {
+                console.log('Can\'t handle url: ' + url);
+              } else {
+                return Linking.openURL(url);
+              }
+            }).catch(err => console.error('An error occurred', err));
+        }
+
+        //Handle Non URL
+        if(item.itemType == "TEXT"){
+            this.props.writeToClipboard(item.text)
+            this.props.readFromClipboard()
+        }
+    }
+
+
     render () {
         return (
             <DropcornSafeAreaView>
-                <KernelList kernelList={ this.props.kernelList }/>
+                <KernelList kernelList={ this.props.kernelList } handleItemSelected={ this._handleItemSelected } />
                 <DropSomethingButton onPress={ this._showDropSomethingModal } buttonText='Drop Something' />
                 <DropSomethingModal
                     modalIsVisible={ this.state._modalIsVisible }
@@ -142,6 +177,7 @@ class Home extends PureComponent {
                     handleFileButton={ this._handleFileButton }
                     handleImageButton={ this._handleImageButton }
                     handleTextSubmit={ this._handleTextSubmit }
+                    inputDefaultValue={ this.props.clipboardContent }
                 />
             </DropcornSafeAreaView>
         );
@@ -149,14 +185,17 @@ class Home extends PureComponent {
 }
 
 const mapStateToProps = state => ({
-    kernelList: state.locationBrowser.kernelList
+    kernelList: state.locationBrowser.kernelList,
+    clipboardContent: state.clipboard.content
 })
 
 const mapDispatchToProps = {
     addTextItem,
     addImageItem,
     addFileItem,
-    updatePermissions
+    updatePermissions,
+    readFromClipboard,
+    writeToClipboard
 }
 
 export default connect(

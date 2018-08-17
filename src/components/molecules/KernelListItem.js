@@ -1,14 +1,14 @@
 import React, { PureComponent } from 'react'
 import { styles as s, options as tachyonsOptions } from 'react-native-style-tachyons'
 import FontAwesome, { Icons } from 'react-native-fontawesome'
-import { View, Text, TouchableOpacity, Dimensions, StyleSheet } from 'react-native'
+import { View, Text, TouchableOpacity, Dimensions, StyleSheet, Linking } from 'react-native'
 import PropTypes from 'prop-types'
 import ModalDropdown from 'react-native-modal-dropdown'
 import { D_FONT_REGULAR } from '../../styles/constants'
 import { ListItem } from 'react-native-elements'
 import {
     D_COLOR_PRIMARY
-} from '../../styles/constants';
+} from '../../styles/constants'
 
 class KernelListItem  extends PureComponent {
     constructor(props){
@@ -51,7 +51,6 @@ class KernelListItem  extends PureComponent {
              this.setState({
                  _doNotCloseBool: false
              })
-              // Add your logic for the transition
          }, 100);
 
         if(!this.state._itemsPressed.includes(idx)){
@@ -59,6 +58,9 @@ class KernelListItem  extends PureComponent {
                 _itemsPressed: [idx, Array.from(this.state._itemsPressed)]
             })
         }
+
+        const item = this.props.kernel.items[idx]
+        this.props.handleItemSelected(item)
     }
 
     _handleDropdownWillShow() {

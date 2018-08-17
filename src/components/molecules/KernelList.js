@@ -13,11 +13,13 @@ class KernelList  extends PureComponent {
 
     static proptypes = {
         kernelList: PropTypes.array.isrequired,
+        handleItemSelected: PropTypes.func.isrequired,
     }
 
     render() {
         const {
             kernelList,
+            handleItemSelected,
             ...props
         } = this.props
 
@@ -30,6 +32,7 @@ class KernelList  extends PureComponent {
             <KernelListItem
               index={ index }
               kernel={ kernel }
+              handleItemSelected={ handleItemSelected }
             />
           ))
           }

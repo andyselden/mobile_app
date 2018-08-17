@@ -54,15 +54,10 @@ class DropSomethingModal extends PureComponent {
         })
     }
 
-    readFromClipboard = async () => {
-        const message = await Clipboard.getString();
-        this.setState({ message });
-    };
-
-
     render() {
         const {
             modalIsVisible,
+            inputDefaultValue,
             ...props
         } = this.props
 
@@ -84,7 +79,7 @@ class DropSomethingModal extends PureComponent {
                             handleTextButton={ this._goToTextInput }
                         />
                     :
-                    <DropSomethingText handleBackButton={ this._goToOptionsRoot } handleSubmitButton={ this._handleTextSubmit } inputDefaultValue=''/>
+                    <DropSomethingText handleBackButton={ this._goToOptionsRoot } handleSubmitButton={ this._handleTextSubmit } inputDefaultValue={ inputDefaultValue }/>
                 }
                </Modal>
              </View>

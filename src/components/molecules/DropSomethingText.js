@@ -10,8 +10,7 @@ class DropSomethingText extends PureComponent {
 
         this._handleBackButton = this._handleBackButton.bind(this)
         this._handleSubmitButton = this._handleSubmitButton.bind(this)
-
-        this.state = { _inputValue: this.props.inputDefaultValue ? '' : 'test'}
+        this.state = { _inputValue: this.props.inputDefaultValue ? this.props.inputDefaultValue : 'test'}
     }
 
     static propTypes = {
@@ -32,8 +31,6 @@ class DropSomethingText extends PureComponent {
             _inputValue: ''
         })
     }
-
-
 
     render() {
     return(

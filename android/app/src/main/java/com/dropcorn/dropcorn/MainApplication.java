@@ -35,6 +35,8 @@ import io.invertase.firebase.fabric.crashlytics.RNFirebaseCrashlyticsPackage; //
 import java.util.Arrays;
 import java.util.List;
 
+import android.util.Log;
+
 public class MainApplication extends Application implements NavigationApplication {
 
   private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
@@ -58,37 +60,17 @@ public class MainApplication extends Application implements NavigationApplicatio
             new RNFetchBlobPackage(),
             new ImagePickerPackage(R.style.my_dialog_style),
             new VectorIconsPackage(),
-            new RNFirebasePackage(),
                         new ReactNativeDocumentPicker(),
 
-        new RNFirebasePackage(),
-        // add/remove these packages as appropriate
-        new RNFirebaseAdMobPackage(),
-        new RNFirebaseAnalyticsPackage(),
-        new RNFirebaseAuthPackage(),
-        new RNFirebaseCrashlyticsPackage(),
-        new RNFirebaseDatabasePackage(),
-        new RNFirebaseFirestorePackage(),
-        new RNFirebaseInstanceIdPackage(),
-        new RNFirebaseLinksPackage(),
-        new RNFirebaseMessagingPackage(),
-        new RNFirebaseNotificationsPackage(),
-        new RNFirebasePerformancePackage(),
-        new RNFirebaseRemoteConfigPackage(),
-        new RNFirebaseStoragePackage()
       );
     }
     
     @Override
     protected String getJSMainModuleName() {
-      return "index";
+         re/**/turn "index";
     }
   };
 
-  @Override
-  public ReactNativeHost getReactNativeHost() {
-    return mReactNativeHost;
-  }
 
   @Override
   public void onCreate() {

@@ -31,26 +31,43 @@ function * initializeRadar(){
 }
 function * syncKernelsSaga()
 {
-    var time = new Date();
-    time.setSeconds(time.getSeconds() - 60);
-    const channel = rsf.firestore.channel(firebase.firestore().collection('kernels').where("updatedAt", ">", time))
-    try{
-        while (true) {
-            const rawData = yield take(channel)
-            const kernels = kernelsTransformer(rawData)
-            yield put({ type: locationBrowserActionTypes.SYNC_KERNELS, kernels })
-        }
-    } catch(error) {
-        console.log(error)
-    }
+
+    // Wait for user to be logged in before finding location
+     yield call(waitFor, state => state.user.user != null)
+
+
+    // Wait for user to be logged in before syncing kernels
+     yield call(waitFor, state => state.user.user != null)
+
+     var time = new Date();
+     time.setSeconds(time.getSeconds() - 60);
+     const channel = rsf.firestore.channel(firebase.firestore().collection('kernels').where("updatedAt", ">", time))
+     try{
+         while (true) {
+             const rawData = yield take(channel)
+             const kernels = kernelsTransformer(rawData)
+             yield put({ type: locationBrowserActionTypes.SYNC_KERNELS, kernels })
+         }
+     } catch(error) {
+         console.log(error)
+     }
 }
 
 function * getUserLocationSaga(){
+
+    // Wait for user to be logged in before finding location
+     yield call(waitFor, state => state.user.user != null)
+
+    state => getCurrentUser(state) != null
     const { location } = yield call(() => Radar.trackOnce())
     yield put({ type: locationBrowserActionTypes.UPDATE_LOCATION.FULFILLED, location })
 }
 
 function * updatePermissionsSaga (action) {
+
+    // Wait for user to be logged in before requesting permission
+     yield call(waitFor, state => state.user.user != null)
+
     try{
         Radar.requestPermissions(action.backgroundAndForegroundPermissionsRequest)
         const permissionsStatus = yield call(Radar.getPermissionsStatus)
@@ -127,14 +144,29 @@ function * backgroundTrackingOffSaga(){
 }
 
 export default function * rootSaga () {
-    const initialized = yield select(state => state.locationBrowser.initialized)
-    if(!initialized) yield call(initializeRadar)
-    yield fork(backgroundLocationUpdatesChannel)
-    yield fork(backgroundLocationErrorsChannel)
-    yield fork(syncKernelsSaga)
-    yield [
-        takeEvery(locationBrowserActionTypes.UPDATE_PERMISSIONS.REQUESTED, updatePermissionsSaga),
-        takeEvery(locationBrowserActionTypes.BACKGROUND_TRACKING_ON.REQUESTED, backgroundTrackingOnSaga),
-        takeEvery(locationBrowserActionTypes.BACKGROUND_TRACKING_OFF.REQUESTED, backgroundTrackingOffSaga),
-    ]
+        const initialized = yield select(state => state.locationBrowser.initialized)
+        if(!initialized) yield call(initializeRadar)
+        yield fork(backgroundLocationUpdatesChannel)
+        yield fork(backgroundLocationErrorsChannel)
+        yield fork(syncKernelsSaga)
+        yield [
+            takeEvery(locationBrowserActionTypes.UPDATE_PERMISSIONS.REQUESTED, updatePermissionsSaga),
+            takeEvery(locationBrowserActionTypes.BACKGROUND_TRACKING_ON.REQUESTED, backgroundTrackingOnSaga),
+            takeEvery(locationBrowserActionTypes.BACKGROUND_TRACKING_OFF.REQUESTED, backgroundTrackingOffSaga),
+        ]
 }
+
+//////////////////////
+////Helper Functions//
+//////////////////////
+
+function* waitFor(selector) {
+  if (yield select(selector)) return;
+
+  while (true) {
+    yield take('*');
+    if (yield select(selector)) return;
+  }
+}
+
+

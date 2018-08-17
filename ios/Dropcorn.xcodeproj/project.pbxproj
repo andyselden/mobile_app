@@ -901,11 +901,12 @@
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = F595J42FAA;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = D4P9UM8J7M;
-						ProvisioningStyle = Manual;
+						DevelopmentTeam = F595J42FAA;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -914,7 +915,7 @@
 								enabled = 1;
 							};
 							com.apple.iCloud = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -1489,6 +1490,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = F595J42FAA;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1526,6 +1528,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = F595J42FAA;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-radar/ios",
@@ -1560,10 +1563,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Dropcorn/Dropcorn.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEAD_CODE_STRIPPING = NO;
-				DEVELOPMENT_TEAM = D4P9UM8J7M;
+				DEVELOPMENT_TEAM = F595J42FAA;
 				DISPLAY_NAME = Dropcorn;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1588,10 +1591,10 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dropcorn.dropcorn;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dropcorn.dropcorn2;
 				PRODUCT_NAME = Dropcorn;
-				PROVISIONING_PROFILE = "2fb83cef-a6fb-4469-8f01-2b14add3d6a8";
-				PROVISIONING_PROFILE_SPECIFIER = "match Development com.dropcorn.dropcorn";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1602,10 +1605,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Dropcorn/Dropcorn.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_TEAM = D4P9UM8J7M;
+				DEVELOPMENT_TEAM = F595J42FAA;
 				DISPLAY_NAME = Dropcorn;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1630,10 +1633,10 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dropcorn.dropcorn;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dropcorn.dropcorn2;
 				PRODUCT_NAME = Dropcorn;
-				PROVISIONING_PROFILE = "17eca12f-2f80-4556-aea6-b6cb2af1c91e";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.dropcorn.dropcorn";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

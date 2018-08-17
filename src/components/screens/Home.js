@@ -8,7 +8,8 @@ import { DocumentPicker, DocumentPickerUtil } from 'react-native-document-picker
 
 import {
     addTextItem,
-    addImageItem
+    addImageItem,
+    addFileItem
 } from '../../redux/actions/kernel'
 
 import {
@@ -20,6 +21,7 @@ import DropcornSafeAreaView from '../atoms/DropcornSafeAreaView'
 import DropcornButton from '../atoms/DropcornButton'
 import DropSomethingButton from '../molecules/DropSomethingButton'
 import DropSomethingModal from '../molecules/DropSomethingModal'
+import KernelList from '../molecules/KernelList'
 
 class Home extends PureComponent {
     constructor(props){
@@ -57,16 +59,14 @@ class Home extends PureComponent {
     };
 
     onNavigatorEvent(event) {
-     if (event.type == 'DeepLink') {
-         if(event.payload.id == 'profileSettings') {
-        this.props.navigator.showModal({
-            screen: 'DropcornApp.Settings',
-            title: 'Settings'
-        })
-         }
-      }
+        if(event.type == "DeepLink" && event.payload.id == "profileSettings")
+        {
+            this.props.navigator.showModal({
+                screen: 'DropcornApp.Settings',
+                title: 'Settings'
+            })
+        }
     }
-
 
     _goToSettings(){
         this.props.navigator.showModal({
@@ -91,25 +91,17 @@ class Home extends PureComponent {
     _handleFileButton(){
         DocumentPicker.show({
       filetype: [DocumentPickerUtil.allFiles()],
-    },(error,res) => {
-      // Android
-      console.log(
-         res.uri,
-         res.type, // mime type
-         res.fileName,
-         res.fileSize
-      );
+    },(error,response) => {
+        if (error) {
+            console.log('DocumentPicker Error: ', error)
+        } else {
+
+            let { uri, fileName } = response
+
+            this.props.addFileItem(uri, fileName)
+        }
     });
-        //// iPad
-        //const {pageX, pageY} = event.nativeEvent;
-        //
-        //DocumentPicker.show({
-        //  top: pageY,
-        //  left: pageX,
-        //  filetype: ['public.image'],
-        //}, (error, url) => {
-        //  alert(url);
-        //});
+
     }
 
     _handleImageButton(){
@@ -142,9 +134,7 @@ class Home extends PureComponent {
     render () {
         return (
             <DropcornSafeAreaView>
-            { this.props.kernels.map(kernel =>
-                <Text>{kernel.id}</Text>
-                    )}
+                <KernelList kernelList={ this.props.kernelList }/>
                 <DropSomethingButton onPress={ this._showDropSomethingModal } buttonText='Drop Something' />
                 <DropSomethingModal
                     modalIsVisible={ this.state._modalIsVisible }
@@ -159,12 +149,13 @@ class Home extends PureComponent {
 }
 
 const mapStateToProps = state => ({
-    kernels: state.locationBrowser.kernelList
+    kernelList: state.locationBrowser.kernelList
 })
 
 const mapDispatchToProps = {
     addTextItem,
     addImageItem,
+    addFileItem,
     updatePermissions
 }
 

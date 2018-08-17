@@ -15,9 +15,10 @@ export const addTextItemRejected = error => ({
   error
 })
 
-export const addFileItem = (item) => ({
+export const addFileItem = (uri, fileName) => ({
   type: kernelActionTypes.ADD_FILE_ITEM.REQUESTED,
-  item
+    uri,
+    fileName
 })
 
 export const addFileItemFulfilled = error => ({

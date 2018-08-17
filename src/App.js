@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react'
+import { AppState } from 'react-native'
 import { Provider } from 'react-redux'
 import { Navigation } from 'react-native-navigation'
 import store from './redux/store'
@@ -18,6 +19,25 @@ const splashNavigationStyle = {
 }
 
 class App extends PureComponent {
+     state = {
+    appState: AppState.currentState
+  }
+
+  componentDidMount() {
+    AppState.addEventListener('change', this._handleAppStateChange);
+  }
+
+  componentWillUnmount() {
+    AppState.removeEventListener('change', this._handleAppStateChange);
+  }
+
+  _handleAppStateChange = (nextAppState) => {
+    if (this.state.appState.match(/inactive|background/) && nextAppState === 'active') {
+      console.log('App has come to the foreground!')
+    }
+    this.setState({appState: nextAppState});
+  }
+
     constructor(props) {
 		super(props);
         store.subscribe(this.onStoreUpdate.bind(this));
@@ -25,7 +45,7 @@ class App extends PureComponent {
 
   onStoreUpdate() {
         let { signedIn } = store.getState().user
-            console.log(store.getState())
+        console.log(store.getState())
 
         if (this.currentRoot != signedIn) {
           this.currentRoot = signedIn;

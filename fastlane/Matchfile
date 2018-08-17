@@ -1,4 +1,5 @@
 git_url("git@andrewSelden.github.com:andrewselden/certificates.git")
 
 app_identifier("com.dropcorn.dropcorn")
-username("andrew.seldenrust@dropcorn.com")
+username("garrett@gradescale.co")
+clone_branch_directly(true)

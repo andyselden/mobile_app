@@ -43,7 +43,7 @@ class DropcornButton extends PureComponent {
                  }
                 { role===roleOptions.secondary &&
                         <Button
-                             title={ title }
+                            title={ title }
                              onPress={ onPress }
                              disabled={ disabled }
                              loading={ loading }

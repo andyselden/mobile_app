@@ -54,46 +54,65 @@ function * addTextItemSaga (action) {
 }
 
 
+
 function * addFileItemSaga (action) {
-//    try{
-//        const user = yield select(state => state.user.user)
-//        yield fork(
-//            clearOutdatedItemsSaga,
-//            firebase.firestore.collection('kernels').doc(user.uid).collection('items')
-//        )
-//
-//        yield call(
-//            uploadFileSaga,
-//            action.uri,
-//            `items/${ user.uid }/${ action.fileName }`
-//        )
-//
-//        yield fork(
-//            updateDocSaga,
-//            `kernels/${ user.uid }/items/tommy`,
-//            {
-//                type: 'IMAGE',
-//                fileReference: `items/${ user.uid }/${ action.fileName }`,
-//                fileName: action.fileName,
-//                updatedAt: firebase.firestore.FieldValue.serverTimestamp()
-//            }
-//        )
-//
-//        yield call(
-//            updateDocSaga,
-//            `kernels/${ user.uid }`,
-//            {
-//                updatedAt: firebase.firestore.FieldValue.serverTimestamp()
-//            }
-//        )
-//
-//        yield put({ type: kernelActionTypes.ADD_IMAGE_ITEM.FULFILLED })
-//
-//        const successMessage = `${ action.fileName } is finished uploading to around you`
-//        //yield put({ type: kernelActionTypes.ADD_IMAGE_ITEM.FULFILLED,  successMessage})
-//    } catch (error) {
-//        yield put({ type: kernelActionTypes.ADD_IMAGE_ITEM.REJECTED, error })
-//    }
+    try{
+        const user = yield select(state => state.user.user)
+
+        //Get unique id for file
+        //Idea is to retain original file name while not conflicting with other files
+        const shortId = shortid.generate()
+
+        //Upload file blob
+        yield call(
+            uploadFileSaga,
+            action.uri,
+            `items/${ user.uid }/${ shortId }/${ action.fileName }`
+        )
+
+        //Get most recent items from kernel
+        const snapshot = yield call(rsf.firestore.getDocument, firebase.firestore().collection('kernels').doc(user.uid))
+        let { items } = (snapshot.exists && 'items' in snapshot.data()) ? snapshot.data() : { items: [] }
+        const updatedAt = (snapshot.exists && 'updatedAt' in snapshot.data()) ? snapshot.data().updatedAt.toDate() : { updatedAt: new Date('December 17, 1995 03:24:00') }
+
+        //Clear out items over 1 min old
+        if(items && items.length){
+             items = yield call(clearItemsIfOutdated, items, updatedAt)
+        }
+
+        //Add file item
+        items.push({
+                itemType: 'FILE',
+                fileReference: `items/${ user.uid }/${ shortId }/${ action.fileName }`,
+                fileName: action.fileName,
+         })
+
+         //Push new kernel to firestore
+         const { latitude, longitude } = yield select(state => state.locationBrowser.location)
+         const userDisplayName = user.displayName ? user.displayName : user.email
+         yield call(
+            rsf.firestore.setDocument,
+            firebase.firestore().collection('kernels').doc(user.uid),
+            {
+                 userDisplayName: userDisplayName,
+                 updatedAt: new firebase.firestore.FieldValue.serverTimestamp(),
+                 location: new firebase.firestore.GeoPoint(latitude, longitude),
+                 items: items
+             }
+        )
+
+        const successMessage = `${ action.fileName } is finished uploading to around you`
+        const timerIsRunning = yield select(state => state.kernel.timerIsRunning)
+        if(timerIsRunning){
+            yield put({ type: kernelActionTypes.TIMER.RESET })
+        } else {
+            yield put({ type: kernelActionTypes.TIMER.START })
+        }
+        yield put({ type: kernelActionTypes.UPDATE_KERNEL_ITEMS, items })
+        yield put({ type: kernelActionTypes.ADD_IMAGE_ITEM.FULFILLED })
+    } catch (error) {
+        yield put({ type: kernelActionTypes.ADD_IMAGE_ITEM.REJECTED, error })
+    }
 }
 
 function * addImageItemSaga (action) {
@@ -234,19 +253,24 @@ function * uploadFileSaga( fileUri, fileStorageRef ){
 }
 
 function* deleteFileSaga( filePath ){
-     yield call(rsf.storage.deleteFile, filePath);
+    try{
+        yield call(rsf.storage.deleteFile, filePath);
+    }catch(error) {
+        console.log(error)
+    }
 }
 
 function* deleteFileWrapperSaga(filePath) {
 	const task = yield fork(deleteFileSaga, filePath);
 
-    //const { error } = yield race({
+    const { error } = yield race({
 	//	success: take(SUCCESS),
-	//	error: take(FAILURE),
-	//})
+		error: console.log(error),
+	})
 
 	if(error) {
 		yield cancel(task)
+
 	}
 }
 

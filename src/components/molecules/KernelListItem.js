@@ -85,11 +85,21 @@ class KernelListItem  extends PureComponent {
     }
 
     _handleRowRender(rowData, rowID, highlighted) {
+
+        const item = this.props.kernel.items[rowID]
         return (
                 <ListItem
                     key={ rowID }
                     title={ rowData }
                     hideChevron={ true }
+                    leftIcon=
+                        { item.itemType == "TEXT" ?
+                            <FontAwesome>{Icons.paperPlaneO}</FontAwesome>
+                                : item.itemType == "IMAGE" ?
+                            <FontAwesome>{Icons.pictureO}</FontAwesome>
+                                :
+                            <FontAwesome>{Icons.fileText}</FontAwesome>
+                    }
                     containerStyle={{
                         borderBottomWidth: 0,
                         minHeight: 2 * tachyonsOptions.rem,
@@ -99,6 +109,7 @@ class KernelListItem  extends PureComponent {
                         justifyContent: 'center',
                         alignItems: 'center'
                     }}
+                    titleStyle={[ s.ml2 ]}
 
                 />
         )

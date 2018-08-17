@@ -22,6 +22,9 @@ import {
     writeToClipboard
 } from '../../redux/actions/clipboard'
 
+import {
+    downloadFile
+} from '../../redux/actions/download'
 
 import DropcornSafeAreaView from '../atoms/DropcornSafeAreaView'
 import DropcornButton from '../atoms/DropcornButton'
@@ -156,12 +159,20 @@ class Home extends PureComponent {
                 return Linking.openURL(url);
               }
             }).catch(err => console.error('An error occurred', err));
+            return
         }
 
         //Handle Non URL
         if(item.itemType == "TEXT"){
             this.props.writeToClipboard(item.text)
             this.props.readFromClipboard()
+            return
+        }
+
+        //Handle Image and File Download
+        if(item.itemType == "FILE" || item.itemType == "IMAGE")
+        {
+            this.props.downloadFile(item.fileReference)
         }
     }
 
@@ -195,7 +206,8 @@ const mapDispatchToProps = {
     addFileItem,
     updatePermissions,
     readFromClipboard,
-    writeToClipboard
+    writeToClipboard,
+    downloadFile
 }
 
 export default connect(

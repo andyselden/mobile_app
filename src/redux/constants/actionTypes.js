@@ -60,6 +60,14 @@ export const kernelActionTypes = {
     UPDATE_KERNEL_ITEMS: 'UPDATE_KERNEL_ITEMS'
 }
 
+export const downloadActionTypes = {
+    DOWNLOAD_FILE: {
+        REQUESTED: 'DOWNLOAD_FILE.REQUESTED',
+        FULFILLED: 'DOWNLOAD_FILE.FULFILLED',
+        REJECTED: 'DOWNLOAD_FILE.REJECTED'
+    }
+}
+
 export const clipboardActionTypes = {
     READ_FROM_CLIPBOARD: {
         REQUESTED: 'READ_FROM_CLIPBOARD.REQUESTED',

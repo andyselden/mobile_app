@@ -1,4 +1,4 @@
-import { call, fork, put, select, take, takeEvery, actionChannel, race } from 'redux-saga/effects'
+import { all, call, fork, put, select, take, takeEvery, actionChannel, race } from 'redux-saga/effects'
 import { clipboardActionTypes, alertDropdownActionTypes } from '../constants/actionTypes'
 import { Clipboard } from 'react-native'
 
@@ -34,8 +34,8 @@ function * readFromClipboardSaga (action) {
 }
 
 export default function * rootSaga () {
-  yield [
+  yield all([
     takeEvery(clipboardActionTypes.WRITE_TO_CLIPBOARD.REQUESTED, writeToClipboardSaga),
     takeEvery(clipboardActionTypes.READ_FROM_CLIPBOARD.REQUESTED, readFromClipboardSaga),
-  ]
+  ])
 }

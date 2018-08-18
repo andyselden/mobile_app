@@ -1,4 +1,4 @@
-import { call, fork, put, select, take, takeLatest, actionChannel, race } from 'redux-saga/effects'
+import { all, call, fork, put, select, take, takeLatest, actionChannel, race } from 'redux-saga/effects'
 import { downloadActionTypes, alertActionTypes } from '../constants/actionTypes'
 import firebase from 'firebase'
 import rsf from '../rsf'
@@ -25,7 +25,7 @@ function * downloadFileSaga (action) {
 }
 
 export default function * rootSaga () {
-  yield [
+  yield all([
     takeLatest(downloadActionTypes.DOWNLOAD_FILE.REQUESTED, downloadFileSaga),
-  ]
+  ])
 }

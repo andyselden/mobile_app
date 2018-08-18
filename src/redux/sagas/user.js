@@ -1,4 +1,4 @@
-import { call, fork, put, take, takeEvery } from 'redux-saga/effects'
+import { all, call, fork, put, take, takeEvery } from 'redux-saga/effects'
 import { userActionTypes } from '../constants/actionTypes'
 import { locationBrowserActionTypes } from '../constants/actionTypes'
 import firebase from 'firebase'
@@ -133,12 +133,12 @@ function * syncUserSaga () {
 export default function * userRootSaga () {
   yield fork(syncUserSaga)
 
-  yield [
+  yield all([
     takeEvery(userActionTypes.SIGNIN.REQUESTED, signInSaga),
     takeEvery(userActionTypes.SIGNOUT.REQUESTED, signOutSaga),
     takeEvery(userActionTypes.SIGNUP.REQUESTED, signUpSaga),
     takeEvery(userActionTypes.UPDATEEMAIL.REQUESTED, updateEmailSaga),
     takeEvery(userActionTypes.PASSWORDRESET.REQUESTED, passwordResetSaga),
     takeEvery(userActionTypes.UPDATEPROFILE.REQUESTED, updateProfileSaga),
-    ]
+    ])
 }

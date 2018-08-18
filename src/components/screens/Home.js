@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { SafeAreaView, Text } from 'react-native'
+import { SafeAreaView, Text, Linking } from 'react-native'
 import FontAwesome, { Icons } from 'react-native-fontawesome'
 import ImagePicker from 'react-native-image-picker'
 import { DocumentPicker, DocumentPickerUtil } from 'react-native-document-picker'

@@ -31,6 +31,7 @@ class KernelList  extends PureComponent {
           kernelList.map((kernel, index) => (
             <KernelListItem
               index={ index }
+              key={ index }
               kernel={ kernel }
               handleItemSelected={ handleItemSelected }
             />

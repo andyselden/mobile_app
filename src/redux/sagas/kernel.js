@@ -1,4 +1,4 @@
-import { call, fork, put, select, take, takeEvery, actionChannel, race } from 'redux-saga/effects'
+import { all, call, fork, put, select, take, takeEvery, actionChannel, race } from 'redux-saga/effects'
 import { delay } from 'redux-saga'
 import { kernelActionTypes, alertDropdownActionTypes } from '../constants/actionTypes'
 import firebase from 'firebase'
@@ -284,7 +284,7 @@ function* clearItemsIfOutdated( items, updatedAt ) {
 
 function* clearItemsFiles( items ){
     const fileRefItems = items.filter(item => (item.itemType == 'IMAGE' || item.itemType == 'FILE'))
-	yield fileRefItems.map(item => call(deleteFileWrapperSaga, item.fileReference))
+	yield all(fileRefItems.map(item => call(deleteFileWrapperSaga, item.fileReference)))
 }
 
 
@@ -327,9 +327,9 @@ function* deleteFileWrapperSaga(filePath) {
 
 export default function * rootSaga () {
   yield fork(kernelDeletionTimerSaga)
-  yield [
+  yield all([
     takeEvery(kernelActionTypes.ADD_TEXT_ITEM.REQUESTED, addTextItemSaga),
     takeEvery(kernelActionTypes.ADD_FILE_ITEM.REQUESTED, addFileItemSaga),
     takeEvery(kernelActionTypes.ADD_IMAGE_ITEM.REQUESTED, addImageItemSaga),
-  ]
+  ])
 }

@@ -1,4 +1,4 @@
-import { call, fork, put, select, takeEvery, take } from 'redux-saga/effects'
+import { all, call, fork, put, select, takeEvery, take } from 'redux-saga/effects'
 import { eventChannel, END } from 'redux-saga'
 import { locationBrowserActionTypes } from '../constants/actionTypes'
 import firebase from 'firebase'
@@ -149,11 +149,11 @@ export default function * rootSaga () {
         yield fork(backgroundLocationUpdatesChannel)
         yield fork(backgroundLocationErrorsChannel)
         yield fork(syncKernelsSaga)
-        yield [
+        yield all([
             takeEvery(locationBrowserActionTypes.UPDATE_PERMISSIONS.REQUESTED, updatePermissionsSaga),
             takeEvery(locationBrowserActionTypes.BACKGROUND_TRACKING_ON.REQUESTED, backgroundTrackingOnSaga),
             takeEvery(locationBrowserActionTypes.BACKGROUND_TRACKING_OFF.REQUESTED, backgroundTrackingOffSaga),
-        ]
+        ])
 }
 
 //////////////////////

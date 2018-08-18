@@ -35,7 +35,7 @@ class DropSomethingText extends PureComponent {
     render() {
     return(
         <KeyboardAvoidingView behavior="padding" >
-        <View style={[s.flx_row, s.bg_white, s.b, s.b__primary ]}>
+        <View style={[s.flx_row, s.bg_secondary, s.b__primary ]}>
             <Text style={[s.f4, s.ml2, s.w2, s.mt2, s.tc, s.typography_60 ]} onPress={ this._handleBackButton }>
           <FontAwesome>{Icons.arrowLeft}</FontAwesome>
         </Text>

@@ -66,10 +66,9 @@ class DropSomethingModal extends PureComponent {
                  <Modal
                      isVisible={ modalIsVisible }
                      onSwipe = { this._handleClose }
-                     backdropOpacity= '0'
                      swipeDirection='down'
                      onBackdropPress = { this._handleClose }
-                     style={[s.ml0, s.mr0, s.mb0]}
+                     style={[s.ml0, s.mr0, s.mb0 ]}
                 >
 
                 { this.state._activeModalAction == 'ROOT' ?

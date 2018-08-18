@@ -3,6 +3,7 @@ import { downloadActionTypes, alertActionTypes } from '../constants/actionTypes'
 import firebase from 'firebase'
 import rsf from '../rsf'
 import RNFetchBlob from 'rn-fetch-blob'
+import DropdownAlert from 'react-native-dropdownalert'
 
 function * downloadFileSaga (action) {
     try{

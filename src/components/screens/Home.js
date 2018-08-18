@@ -4,8 +4,8 @@ import { connect } from 'react-redux'
 import { SafeAreaView, Text } from 'react-native'
 import FontAwesome, { Icons } from 'react-native-fontawesome'
 import ImagePicker from 'react-native-image-picker'
-import { DocumentPicker, DocumentPickerUtil } from 'react-native-document-picker';
-import validator from 'validator';
+import { DocumentPicker, DocumentPickerUtil } from 'react-native-document-picker'
+import validator from 'validator'
 
 import {
     addTextItem,
@@ -50,6 +50,20 @@ class Home extends PureComponent {
 
     componentDidMount(){
         this.props.updatePermissions(true)
+    }
+
+    componentDidUpdate(prevProps){
+        if(prevProps.alertDropdownTimestamp !== this.props.alertDropdownTimestamp)
+        {
+            this.props.navigator.showInAppNotification({
+              screen: 'DropcornApp.Notification',
+                passProps: {
+                    alertTitle: this.props.alertDropdownTitle,
+                    alertType: this.props.alertDropdownType
+                },
+              autoDismissTimerSec: .5
+            });
+        }
     }
 
     static propTypes = {
@@ -176,7 +190,17 @@ class Home extends PureComponent {
         }
     }
 
-
+  onError = error => {
+    if (error) {
+      this.dropdown.alertWithType('error', 'Error', error);
+    }
+  };
+  // ...
+  onClose(data) {
+    // data = {type, title, message, action}
+    // action means how the alert was closed.
+    // returns: automatic, programmatic, tap, pan or cancel
+  }
     render () {
         return (
             <DropcornSafeAreaView>
@@ -197,7 +221,11 @@ class Home extends PureComponent {
 
 const mapStateToProps = state => ({
     kernelList: state.locationBrowser.kernelList,
-    clipboardContent: state.clipboard.content
+    clipboardContent: state.clipboard.content,
+    alertDropdownTimestamp: state.alertDropdown.timestamp,
+    alertDropdownType: state.alertDropdown.alertType,
+    alertDropdownTitle: state.alertDropdown.title,
+    alertDropdownMessage: state.alertDropdown.message
 })
 
 const mapDispatchToProps = {

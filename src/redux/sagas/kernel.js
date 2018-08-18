@@ -1,6 +1,6 @@
 import { call, fork, put, select, take, takeEvery, actionChannel, race } from 'redux-saga/effects'
 import { delay } from 'redux-saga'
-import { kernelActionTypes, alertActionTypes } from '../constants/actionTypes'
+import { kernelActionTypes, alertDropdownActionTypes } from '../constants/actionTypes'
 import firebase from 'firebase'
 import rsf from '../rsf'
 import shortid from 'shortid'
@@ -48,6 +48,19 @@ function * addTextItemSaga (action) {
         }
         yield put({ type: kernelActionTypes.UPDATE_KERNEL_ITEMS, items })
         yield put({ type: kernelActionTypes.ADD_TEXT_ITEM.FULFILLED })
+        // Send dropdown alert
+        const timestamp = Date.now()
+        const alertType =  "SUCCESS"
+        const title = "text added to your kernel!"
+        const message = "testing"
+        yield put({
+            type: alertDropdownActionTypes.ALERT_USER,
+            timestamp: timestamp,
+            alertType: alertType,
+            title: title,
+            message: message
+        })
+
     } catch (error) {
         yield put({ type: kernelActionTypes.ADD_TEXT_ITEM.REJECTED, error })
     }
@@ -57,6 +70,15 @@ function * addTextItemSaga (action) {
 
 function * addFileItemSaga (action) {
     try{
+        // Send dropdown alert
+        yield put({
+            type: alertDropdownActionTypes.ALERT_USER,
+            timestamp: Date.now(),
+            alertType: "INFO",
+            title: action.fileName + " is uploading..",
+            message: ''
+        })
+
         const user = yield select(state => state.user.user)
 
         //Get unique id for file
@@ -110,6 +132,15 @@ function * addFileItemSaga (action) {
         }
         yield put({ type: kernelActionTypes.UPDATE_KERNEL_ITEMS, items })
         yield put({ type: kernelActionTypes.ADD_IMAGE_ITEM.FULFILLED })
+
+        // Send dropdown alert
+        yield put({
+            type: alertDropdownActionTypes.ALERT_USER,
+            timestamp: Date.now(),
+            alertType: "SUCCESS",
+            title: action.fileName + " is uploaded!",
+            message: ''
+        })
     } catch (error) {
         yield put({ type: kernelActionTypes.ADD_IMAGE_ITEM.REJECTED, error })
     }
@@ -117,6 +148,16 @@ function * addFileItemSaga (action) {
 
 function * addImageItemSaga (action) {
     try{
+
+        // Send dropdown alert
+        yield put({
+            type: alertDropdownActionTypes.ALERT_USER,
+            timestamp: Date.now(),
+            alertType: "INFO",
+            title: action.fileName + " is uploading...",
+            message: ''
+        })
+
         const user = yield select(state => state.user.user)
 
         //Get unique id for file
@@ -170,6 +211,16 @@ function * addImageItemSaga (action) {
         }
         yield put({ type: kernelActionTypes.UPDATE_KERNEL_ITEMS, items })
         yield put({ type: kernelActionTypes.ADD_IMAGE_ITEM.FULFILLED })
+
+
+        // Send dropdown alert
+        yield put({
+            type: alertDropdownActionTypes.ALERT_USER,
+            timestamp: Date.now(),
+            alertType: "SUCCESS",
+            title: action.fileName + " is uploaded!",
+            message: ''
+        })
     } catch (error) {
         yield put({ type: kernelActionTypes.ADD_IMAGE_ITEM.REJECTED, error })
     }

@@ -111,5 +111,6 @@ export const locationBrowserActionTypes = {
     SYNC_KERNELS: 'LOCATION_BROWSER.SYNC_KERNELS'
 }
 
-export const alertActionTypes = {
+export const alertDropdownActionTypes = {
+    ALERT_USER: 'ALERT_USER'
 }

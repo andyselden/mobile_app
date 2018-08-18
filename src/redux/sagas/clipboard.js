@@ -1,11 +1,24 @@
 import { call, fork, put, select, take, takeEvery, actionChannel, race } from 'redux-saga/effects'
-import { clipboardActionTypes, alertActionTypes } from '../constants/actionTypes'
+import { clipboardActionTypes, alertDropdownActionTypes } from '../constants/actionTypes'
 import { Clipboard } from 'react-native'
 
 function * writeToClipboardSaga (action) {
     try{
         yield call(Clipboard.setString, action.text)
          yield put({ type: clipboardActionTypes.WRITE_TO_CLIPBOARD.FULFILLED })
+
+        // Send dropdown alert
+        const timestamp = Date.now()
+        const alertType =  "SUCCESS"
+        const title = "copied to clipboard!"
+        const message = "testing"
+        yield put({
+            type: alertDropdownActionTypes.ALERT_USER,
+            timestamp: timestamp,
+            alertType: alertType,
+            title: title,
+            message: message
+        })
     } catch(error){
          yield put({ type: clipboardActionTypes.WRITE_TO_CLIPBOARD.REJECTED, error })
     }

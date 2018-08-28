@@ -61,7 +61,7 @@ class Home extends PureComponent {
                     alertTitle: this.props.alertDropdownTitle,
                     alertType: this.props.alertDropdownType
                 },
-              autoDismissTimerSec: .5
+              autoDismissTimerSec: .2
             });
         }
     }

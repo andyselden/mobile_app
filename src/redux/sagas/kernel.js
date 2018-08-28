@@ -48,19 +48,13 @@ function * addTextItemSaga (action) {
         }
         yield put({ type: kernelActionTypes.UPDATE_KERNEL_ITEMS, items })
         yield put({ type: kernelActionTypes.ADD_TEXT_ITEM.FULFILLED })
-        // Send dropdown alert
-        const timestamp = Date.now()
-        const alertType =  "SUCCESS"
-        const title = "text added to your kernel!"
-        const message = "testing"
-        yield put({
-            type: alertDropdownActionTypes.ALERT_USER,
-            timestamp: timestamp,
-            alertType: alertType,
-            title: title,
-            message: message
-        })
-
+        // Send In App Notification
+        yield call(
+            sendInAppNotificationSaga,
+            "SUCCESS",
+            "text added to your kernel!",
+            ""
+        )
     } catch (error) {
         yield put({ type: kernelActionTypes.ADD_TEXT_ITEM.REJECTED, error })
     }
@@ -70,14 +64,13 @@ function * addTextItemSaga (action) {
 
 function * addFileItemSaga (action) {
     try{
-        // Send dropdown alert
-        yield put({
-            type: alertDropdownActionTypes.ALERT_USER,
-            timestamp: Date.now(),
-            alertType: "INFO",
-            title: action.fileName + " is uploading..",
-            message: ''
-        })
+        // Send In App Notification
+        yield call(
+            sendInAppNotificationSaga,
+            "INFO",
+            action.fileName + " is uploading...",
+            ""
+        )
 
         const user = yield select(state => state.user.user)
 
@@ -133,14 +126,13 @@ function * addFileItemSaga (action) {
         yield put({ type: kernelActionTypes.UPDATE_KERNEL_ITEMS, items })
         yield put({ type: kernelActionTypes.ADD_IMAGE_ITEM.FULFILLED })
 
-        // Send dropdown alert
-        yield put({
-            type: alertDropdownActionTypes.ALERT_USER,
-            timestamp: Date.now(),
-            alertType: "SUCCESS",
-            title: action.fileName + " is uploaded!",
-            message: ''
-        })
+        // Send In App Notification
+        yield call(
+            sendInAppNotificationSaga,
+            "SUCCESS",
+            action.fileName + " is uploaded!",
+            ""
+        )
     } catch (error) {
         yield put({ type: kernelActionTypes.ADD_IMAGE_ITEM.REJECTED, error })
     }
@@ -148,15 +140,13 @@ function * addFileItemSaga (action) {
 
 function * addImageItemSaga (action) {
     try{
-
-        // Send dropdown alert
-        yield put({
-            type: alertDropdownActionTypes.ALERT_USER,
-            timestamp: Date.now(),
-            alertType: "INFO",
-            title: action.fileName + " is uploading...",
-            message: ''
-        })
+    // Send In App Notification
+        yield call(
+            sendInAppNotificationSaga,
+            "INFO",
+            action.fileName + " is uploading...",
+            ""
+        )
 
         const user = yield select(state => state.user.user)
 
@@ -212,15 +202,14 @@ function * addImageItemSaga (action) {
         yield put({ type: kernelActionTypes.UPDATE_KERNEL_ITEMS, items })
         yield put({ type: kernelActionTypes.ADD_IMAGE_ITEM.FULFILLED })
 
+    // Send In App Notification
+        yield call(
+            sendInAppNotificationSaga,
+            "SUCCESS",
+            action.fileName + " is uploaded!",
+            ""
+        )
 
-        // Send dropdown alert
-        yield put({
-            type: alertDropdownActionTypes.ALERT_USER,
-            timestamp: Date.now(),
-            alertType: "SUCCESS",
-            title: action.fileName + " is uploaded!",
-            message: ''
-        })
     } catch (error) {
         yield put({ type: kernelActionTypes.ADD_IMAGE_ITEM.REJECTED, error })
     }
@@ -236,7 +225,7 @@ function * addImageItemSaga (action) {
  * This Timer Saga sets a 60 second timer to delete old items compares the time from 60
  * seconds ago with updatedAt and returns empty arr
 */
-function* kernelDeletionTimerSaga() {
+function * kernelDeletionTimerSaga() {
   const channel = yield actionChannel(kernelActionTypes.TIMER.START)
   while(yield take(channel)) {
     while(true) {
@@ -323,6 +312,26 @@ function* deleteFileWrapperSaga(filePath) {
 		yield cancel(task)
 
 	}
+}
+
+function * sendInAppNotificationSaga(alertType, title, message){
+        const timestamp = yield select(state => state.alertDropdown.timestamp)
+
+    while(true){
+         if(Date.now() - timestamp < 1000)
+         {
+             delay(100)
+         } else {
+             yield put({
+                 type: alertDropdownActionTypes.ALERT_USER,
+                 timestamp: Date.now(),
+                 alertType: alertType,
+                 title: title,
+                 message: message
+             })
+             break
+         }
+    }
 }
 
 export default function * rootSaga () {
